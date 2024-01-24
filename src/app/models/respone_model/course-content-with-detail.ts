@@ -7,6 +7,7 @@ export class CourseContentWithDetails extends CourseContent {
 }
 
 export class GetCourseWithDetailsContent extends Course {
+    totalOrder: number;
     listContentCourseDetails : CourseContentWithDetails[];
     listCourseRate: Course[];
     author : StudentUser;

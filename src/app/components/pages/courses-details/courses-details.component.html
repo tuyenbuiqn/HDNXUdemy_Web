@@ -23,6 +23,9 @@
             </div>
         </div>
     </div>
+
+    
+<app-hdnx-loading [show]="isLoading">
     <div class="container pt-5">
         <div class="row">
             <div class="col-lg-9 col-md-12 pb-4">
@@ -360,8 +363,8 @@
             <div class="col-lg-3 col-md-12">
                 <div class="courses-details-info">
                     <div class="image">
-                        <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
-                            <a data-lg-size="1280-720" data-video='{"source": [{"src":"{}", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true}}' data-sub-html="<p>Watch Video</p>" class="d-block">
+                        <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide" [onInit]="onInit">
+                            <a data-sub-html="<p>Watch Video</p>" class="d-block" (click)="openGallery()">
                                 <img src="{{courseContentCourse?.pictureUrl}}" alt="image" />
                                 <div class="content">
                                     <i class="flaticon-play"></i>
@@ -369,6 +372,12 @@
                                 </div>
                             </a>
                         </lightgallery>
+
+                        <!-- <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
+                            <a data-lg-size="1280-720" *ngFor="let video of videos" [attr.data-src]="video.src" data-sub-html="<p>Watch Video</p>" class="d-block">
+                               <img src="{{courseContentCourse?.pictureUrl}}" alt="Video Thumbnail">
+                            </a>
+                         </lightgallery> -->
                     </div>
                     <ul class="info">
                         <li class="price">
@@ -422,7 +431,7 @@
                     </ul>
 
                     <div class="btn-box">
-                        <a routerLink="/chi-tiet-khoa-hoc" class="default-btn"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
+                        <a href="javascript:void(0);" class="default-btn" (click)="addCourseToCart()"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
                         <a routerLink="/chi-tiet-khoa-hoc" class="default-btn"><i class="flaticon-shopping-cart"></i>Truy cập khoá học<span></span></a>
                         <a routerLink="/chi-tiet-khoa-hoc" class="default-btn"><i class="flaticon-tag"></i>Mua ngay<span></span></a>
                     </div>
@@ -447,4 +456,6 @@
             </div>
         </div>
     </div>
+</app-hdnx-loading>
+
 </div>

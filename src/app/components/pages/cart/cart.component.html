@@ -23,20 +23,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let item of cartServices?.courseItems">
                         <td class="product-thumbnail">
                             <a routerLink="/chi-tiet-san-pham">
-                                <img
-                                    src="https://angular.envytheme.com/odemy-ng/assets/img/products/img1.jpg"
-                                    alt="item"
-                                />
+                                <img src="{{ item?.pictureUrl }}" alt="item" />
                             </a>
                         </td>
                         <td class="product-name">
-                            <a routerLink="/chi-tiet-san-pham"
-                                >Python for Finance: Investment Fundamentals & Data Analytics</a
-                            ><br />
-                            <a routerLink="/chi-tiet-san-pham">By Nguyễn Minh Tuấn</a><br />
+                            <a routerLink="/chi-tiet-san-pham">{{ item?.title }}</a><br />
+                            <a routerLink="/chi-tiet-san-pham">{{ item?.author?.name }}</a><br />
                             <div class="rating">
                                 <span>4.0</span>&nbsp;
                                 <span class="bx bxs-star checked"></span>
@@ -44,127 +39,19 @@
                                 <span class="bx bxs-star checked"></span>
                                 <span class="bx bxs-star checked"></span>
                                 <span class="bx bxs-star checked"></span>&nbsp;
-                                <span>(40 rating)</span>
+                                <span>({{ item?.totalVoteOfCourse }} rating)</span>
                             </div>
                             <div>
                                 <ul class="detail-courses-cart">
-                                    <li>35 giờ học</li>
-                                    <li>28 bài học</li>
+                                    <li>{{ item?.duration }} giờ học</li>
+                                    <li>{{ item?.totalChapter }} bài học</li>
                                     <li>Thiết kế cơ khí</li>
                                 </ul>
                             </div>
                         </td>
                         <td class="product-subtotal">
-                            <span class="subtotal-amount">$250.00</span>
-                            <a routerLink="/gio-hang" class="remove"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="product-thumbnail">
-                            <a routerLink="/chi-tiet-san-pham">
-                                <img
-                                    src="https://angular.envytheme.com/odemy-ng/assets/img/products/img2.jpg"
-                                    alt="item"
-                                />
-                            </a>
-                        </td>
-                        <td class="product-name">
-                            <a routerLink="/chi-tiet-san-pham"
-                                >Python for Finance: Investment Fundamentals & Data Analytics</a
-                            ><br />
-                            <a routerLink="/chi-tiet-san-pham">By Nguyễn Minh Tuấn</a><br />
-                            <div class="rating">
-                                <span>4.0</span>&nbsp;
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>&nbsp;
-                                <span>(40 rating)</span>
-                            </div>
-                            <div>
-                                <ul class="detail-courses-cart">
-                                    <li>35 giờ học</li>
-                                    <li>28 bài học</li>
-                                    <li>Thiết kế cơ khí</li>
-                                </ul>
-                            </div>
-                        </td>
-                        <td class="product-subtotal">
-                            <span class="subtotal-amount">$200.00</span>
-                            <a routerLink="/gio-hang" class="remove"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="product-thumbnail">
-                            <a routerLink="/chi-tiet-san-pham">
-                                <img
-                                    src="https://angular.envytheme.com/odemy-ng/assets/img/products/img3.jpg"
-                                    alt="item"
-                                />
-                            </a>
-                        </td>
-                        <td class="product-name">
-                            <a routerLink="/chi-tiet-san-pham"
-                                >Python for Finance: Investment Fundamentals & Data Analytics</a
-                            ><br />
-                            <a routerLink="/chi-tiet-san-pham">By Nguyễn Minh Tuấn</a><br />
-                            <div class="rating">
-                                <span>4.0</span>&nbsp;
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>&nbsp;
-                                <span>(40 rating)</span>
-                            </div>
-                            <div>
-                                <ul class="detail-courses-cart">
-                                    <li>35 giờ học</li>
-                                    <li>28 bài học</li>
-                                    <li>Thiết kế cơ khí</li>
-                                </ul>
-                            </div>
-                        </td>
-                        <td class="product-subtotal">
-                            <span class="subtotal-amount">$200.00</span>
-                            <a routerLink="/gio-hang" class="remove"><i class="bx bx-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="product-thumbnail">
-                            <a routerLink="/chi-tiet-san-pham">
-                                <img
-                                    src="https://angular.envytheme.com/odemy-ng/assets/img/products/img4.jpg"
-                                    alt="item"
-                                />
-                            </a>
-                        </td>
-                        <td class="product-name">
-                            <a routerLink="/chi-tiet-san-pham"
-                                >Python for Finance: Investment Fundamentals & Data Analytics</a
-                            ><br />
-                            <a routerLink="/chi-tiet-san-pham">By Nguyễn Minh Tuấn</a><br />
-                            <div class="rating">
-                                <span>4.0</span>&nbsp;
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>&nbsp;
-                                <span>(40 rating)</span>
-                            </div>
-                            <div>
-                                <ul class="detail-courses-cart">
-                                    <li>35 giờ học</li>
-                                    <li>28 bài học</li>
-                                    <li>Thiết kế cơ khí</li>
-                                </ul>
-                            </div>
-                        </td>
-                        <td class="product-subtotal">
-                            <span class="subtotal-amount">$150.00</span>
-                            <a routerLink="/gio-hang" class="remove"><i class="bx bx-trash"></i></a>
+                            <span class="subtotal-amount">{{item.isDiscount == true ? (item?.percentDiscount | currency: 'VND':'symbol':'1.0-0') : (item.priceOfCourse | currency: 'VND':'symbol':'1.0-0') }}</span>
+                            <a href="javascript:void(0)" (click)="removeItemOnCart(item)" class="remove"><i class="bx bx-trash"></i></a>
                         </td>
                     </tr>
                 </tbody>
@@ -175,24 +62,16 @@
         <div class="cart-totals">
             <h3>Tổng đơn hàng</h3>
             <ul>
-                <li>Tổng đơn hàng <span>$800.00</span></li>
+                <li>Tổng đơn hàng <span>{{totalValue | currency: 'VND':'symbol':'1.0-0'}}</span></li>
                 <li>Giảm giá <span>$30.00</span></li>
-                <li>Tổng cộng <span>$830.00</span></li>
+                <li>Tổng cộng <span>{{totalValue | currency: 'VND':'symbol':'1.0-0'}}</span></li>
             </ul>
 
             <div class="shopping-coupon-code">
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Nhập giảm giá"
-                    name="coupon-code"
-                    id="coupon-code"
-                />
+                <input type="text" class="form-control" placeholder="Nhập giảm giá" name="coupon-code" id="coupon-code" />
                 <button type="submit">Nhập giảm giá</button>
             </div>
-            <a routerLink="/thanh-toan" class="default-btn with-btn-login"
-                ><i class="flaticon-shopping-cart"></i>Tiếp tục thanh toán<span></span
-            ></a>
+            <a routerLink="/thanh-toan" class="default-btn with-btn-login"><i class="flaticon-shopping-cart"></i>Tiếp tục thanh toán<span></span></a>
         </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartServices } from 'src/app/core/services/cart.service';
 import { CategoryServices } from 'src/app/core/services/category.service';
 import { CategoryModel } from 'src/app/models/models/category';
 
@@ -13,6 +14,7 @@ export class NavbarComponent implements OnInit {
     // Navbar Sticky
     isSticky: boolean = false;
     categories: CategoryModel[] = [];
+    public count: number = 0;
     @HostListener('window:scroll', ['$event'])
     checkScroll() {
         const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -24,10 +26,14 @@ export class NavbarComponent implements OnInit {
     }
     constructor(
         private readonly categoryServices: CategoryServices,
-        private readonly router: Router) { }
+        private readonly router: Router,
+        private readonly cartServices : CartServices,) { }
 
     ngOnInit(): void {
         this.loadDataCategory();
+        this.cartServices.cartUpdates$.subscribe(() => {
+            this.count = this.cartServices.count;
+        })
     }
 
     classApplied = false;
