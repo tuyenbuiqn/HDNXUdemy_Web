@@ -1,0 +1,679 @@
+<div class="course-container page-title-content">
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/">Development</a></li>
+        <li>Python for Finance: Investment Fundamentals & Data Analytics</li>
+    </ul>
+</div>
+
+<div class="video-player-padding">
+    <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+        <mux-player
+            stream-type="on-demand"
+            playback-id="FuJSYrK0014ec2LPnm11bzC2MAySAQPqA"
+            metadata-video-title="Tea and Cookies"
+            metadata-user-id="user-24601"
+        ></mux-player>
+
+        <div class="progress col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div
+                class="progress-bar progress-bar-striped"
+                role="progressbar"
+                style="width: 25%"
+                aria-valuenow="25"
+                aria-valuemin="0"
+                aria-valuemax="100"
+            >25%</div>
+        </div>
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="courses-details-desc course-container-view">
+                <ul class="nav-tabset">
+                    <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab1' }">
+                        <span (click)="switchTab($event, 'tab1')"> Thông tin khoá học </span>
+                    </li>
+                    <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab2' }">
+                        <span (click)="switchTab($event, 'tab2')"> Tài liệu </span>
+                    </li>
+                    <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab3' }">
+                        <span (click)="switchTab($event, 'tab3')"> Tác giả </span>
+                    </li>
+                    <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab4' }">
+                        <span (click)="switchTab($event, 'tab4')"> Đánh giá khoá học </span>
+                    </li>
+                    <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab5' }">
+                        <span (click)="switchTab($event, 'tab5')"> Câu hỏi khoá học </span>
+                    </li>
+                </ul>
+                <div class="tabs-container">
+                    <div class="pane" id="tab1" *ngIf="currentTab === 'tab1'">
+                        <div class="courses-overview">
+                            <h3>Thông tin khoá học</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+                                accumsan lacus vel facilisis.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+                                accumsan lacus vel facilisis.
+                            </p>
+                            <h3>Certification</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+                                accumsan lacus vel facilisis.
+                            </p>
+                            <h3>Who this course is for</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+                                accumsan lacus vel facilisis.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pane" id="tab2" *ngIf="currentTab === 'tab2'">
+                        <div class="courses-curriculum">
+                            <h3>Tài liệu khoá học</h3>
+                            <ul>
+                                <li>
+                                    <a
+                                        routerLink="/chi-tiet-noi-dung-khoa-hoc"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{
+                                            exact: true
+                                        }"
+                                        class="popup-youtube d-flex justify-content-between align-items-center"
+                                    >
+                                        <span class="courses-name">Tài liệu số 1</span>
+                                        <div class="courses-meta">
+                                            <span class="status">Tải xuống</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        routerLink="/chi-tiet-noi-dung-khoa-hoc"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{
+                                            exact: true
+                                        }"
+                                        class="popup-youtube d-flex justify-content-between align-items-center"
+                                    >
+                                        <span class="courses-name">Tài liệu số 1</span>
+                                        <div class="courses-meta">
+                                            <span class="status">Tải xuống</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        routerLink="/chi-tiet-noi-dung-khoa-hoc"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{
+                                            exact: true
+                                        }"
+                                        class="popup-youtube d-flex justify-content-between align-items-center"
+                                    >
+                                        <span class="courses-name">Tài liệu số 1</span>
+                                        <div class="courses-meta">
+                                            <span class="status">Tải xuống</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        routerLink="/chi-tiet-noi-dung-khoa-hoc"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{
+                                            exact: true
+                                        }"
+                                        class="popup-youtube d-flex justify-content-between align-items-center"
+                                    >
+                                        <span class="courses-name">Tài liệu số 1</span>
+                                        <div class="courses-meta">
+                                            <span class="status">Tải xuống</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        routerLink="/chi-tiet-noi-dung-khoa-hoc"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{
+                                            exact: true
+                                        }"
+                                        class="popup-youtube d-flex justify-content-between align-items-center"
+                                    >
+                                        <span class="courses-name">Tài liệu số 1</span>
+                                        <div class="courses-meta">
+                                            <span class="status">Tải xuống</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pane" id="tab3" *ngIf="currentTab === 'tab3'">
+                        <div class="courses-instructor">
+                            <div class="single-advisor-box">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="advisor-image">
+                                            <img src="assets/img/advisor/img2.jpg" alt="image" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8">
+                                        <div class="advisor-content">
+                                            <h3>Sarah Taylor</h3>
+                                            <span class="sub-title">Agile Project Expert</span>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                                incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
+                                                gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum
+                                                dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                                labore et dolore magna aliqua.
+                                            </p>
+                                            <ul class="social-link">
+                                                <li>
+                                                    <a href="#" class="d-block" target="_blank"><i class="bx bxl-facebook"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="d-block" target="_blank"><i class="bx bxl-twitter"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="d-block" target="_blank"><i class="bx bxl-instagram"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="d-block" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pane" id="tab4" *ngIf="currentTab === 'tab4'">
+                        <div class="courses-reviews">
+                            <h3>Đánh giá</h3>
+                            <div class="rating">
+                                <span class="bx bxs-star checked"></span>
+                                <span class="bx bxs-star checked"></span>
+                                <span class="bx bxs-star checked"></span>
+                                <span class="bx bxs-star checked"></span>
+                                <span class="bx bxs-star"></span>
+                            </div>
+                            <div class="rating-count">
+                                <span>Trung bình 4.1 dựa trên 1000 đánh giá.</span>
+                            </div>
+                            <div class="row">
+                                <div class="side">
+                                    <div>5 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container progress">
+                                        <div
+                                            class="progress-bar bg-success progress-bar-striped"
+                                            role="progressbar"
+                                            style="width: 25%"
+                                            aria-valuenow="25"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>02</div>
+                                </div>
+                                <div class="side">
+                                    <div>4 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-4"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>03</div>
+                                </div>
+                                <div class="side">
+                                    <div>3 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-3"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>04</div>
+                                </div>
+                                <div class="side">
+                                    <div>2 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-2"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>05</div>
+                                </div>
+                                <div class="side">
+                                    <div>1 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-1"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="courses-review-comments">
+                            <div>
+                                <h3>
+                                    3 Đánh giá
+                                    <a
+                                        href="javascript:void(0)"
+                                        (click)="openModalReviewCourses()"
+                                        *ngIf="isComment; else commented"
+                                        ><i class="bx bxs-conversation font-size-icon"></i
+                                    ></a>
+                                </h3>
+                            </div>
+            
+                            <div class="user-review">
+                                <img src="assets/img/user1.jpg" alt="image" />
+                                <div class="review-rating">
+                                    <div class="review-stars">
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                    </div>
+                                    <span class="d-inline-block">James Anderson</span>
+                                </div>
+                                <span class="d-block sub-comment">Excellent</span>
+                                <p>
+                                    Very well built theme, couldn't be happier with it. Can't wait for future updates to see what
+                                    else they add in.
+                                </p>
+                                <div class="courses-review">
+                                    <div class="reactions">
+                                        <button class="btn react"><i class="bx bxs-like"></i>4</button>
+                                        <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
+                                    </div>
+                                    <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
+                                    <span class="is-mute">6 giờ</span>
+                                </div>
+                            </div>
+                            <div class="user-review">
+                                <img src="assets/img/user2.jpg" alt="image" />
+                                <div class="review-rating">
+                                    <div class="review-stars">
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star"></i>
+                                        <i class="bx bxs-star"></i>
+                                    </div>
+                                    <span class="d-inline-block">Sarah Taylor</span>
+                                </div>
+                                <span class="d-block sub-comment">Video Quality!</span>
+                                <p>Was really easy to implement and they quickly answer my additional questions!</p>
+                                <div class="courses-review">
+                                    <div class="reactions">
+                                        <button class="btn react"><i class="bx bxs-like"></i>4</button>
+                                        <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
+                                    </div>
+                                    <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
+                                    <span class="is-mute">6 giờ</span>
+                                </div>
+                            </div>
+                            <div class="user-review">
+                                <img src="assets/img/user3.jpg" alt="image" />
+                                <div class="review-rating">
+                                    <div class="review-stars">
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                    </div>
+                                    <span class="d-inline-block">David Warner</span>
+                                </div>
+                                <span class="d-block sub-comment">Perfect Coding!</span>
+                                <p>
+                                    Stunning design, very dedicated crew who welcome new ideas suggested by customers, nice support.
+                                </p>
+                                <div class="courses-review">
+                                    <div class="reactions">
+                                        <button class="btn react"><i class="bx bxs-like"></i>4</button>
+                                        <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
+                                    </div>
+                                    <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
+                                    <span class="is-mute">6 giờ</span>
+                                </div>
+                            </div>
+                            <div class="user-review">
+                                <img src="assets/img/user4.jpg" alt="image" />
+                                <div class="review-rating">
+                                    <div class="review-stars">
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star checked"></i>
+                                        <i class="bx bxs-star"></i>
+                                    </div>
+                                    <span class="d-inline-block">King Kong</span>
+                                </div>
+                                <span class="d-block sub-comment">Perfect Video!</span>
+                                <p>
+                                    Stunning design, very dedicated crew who welcome new ideas suggested by customers, nice support.
+                                </p>
+                                <div class="courses-review">
+                                    <div class="reactions">
+                                        <button class="btn react"><i class="bx bxs-like"></i>4</button>
+                                        <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
+                                    </div>
+                                    <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
+                                    <span class="is-mute">6 giờ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pane" id="tab5" *ngIf="currentTab === 'tab5'">
+                        <div class="courses-review-comments content-comment">
+                            <h3>3 Đánh giá</h3>
+                            <div class="block">
+                                <div class="block-header">
+                                    <div class="title">
+                                        <h2>Bình luận</h2>
+                                        <div class="tag">12</div>
+                                    </div>
+                                    <div class="group-radio">
+                                        <span class="button-radio">
+                                            <input id="latest" name="latest" type="radio" checked />
+                                            <label for="latest">Mới nhất</label>
+                                        </span>
+                                        <div class="divider"></div>
+                                        <span class="button-radio">
+                                            <input id="popular" name="latest" type="radio" />
+                                            <label for="popular">Phổ biến</label>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="writing" *ngIf="!isDisplayReplay">
+                                    <div contenteditable="true" class="textarea" autofocus spellcheck="false">
+                                        <p>Hi <a class="tagged-user">@Jo</a></p>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="text-format">
+                                            <button class="btn"><i class="bx bx-bold"></i></button>
+                                            <button class="btn"><i class="bx bx-italic"></i></button>
+                                            <button class="btn"><i class="bx bx-underline"></i></button>
+                                            <button class="btn"><i class="bx bx-list-ul"></i></button>
+                                        </div>
+                                        <div class="group-button">
+                                            <button class="btn"><i class="bx bx-purchase-tag"></i></button>
+                                            <button class="btn primary">Bình luận</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="user-banner">
+                                        <div class="user">
+                                            <div class="avatar">
+                                                <img src="https://randomuser.me/api/portraits/men/86.jpg" />
+                                                <span class="stat grey"></span>
+                                            </div>
+                                            <h5>Floyd Miles</h5>
+                                        </div>
+                                        <button class="btn dropdown"><i class="ri-more-line"></i></button>
+                                    </div>
+                                    <div class="content">
+                                        <p>
+                                            Actually, now that I try out the links on my message, above, none of them take me to the
+                                            secure site. Only my shortcut on my desktop, which I created years ago.
+                                        </p>
+                                    </div>
+                                    <div class="footer">
+                                        <button class="btn"><i class="ri-emotion-line"></i></button>
+                                        <div class="reactions">
+                                            <button class="btn react"><i class="bx bxs-like"></i>4</button>
+                                            <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
+                                            <button class="btn react" (click)="openModalCommentUser()">
+                                                <i class="bx bxs-conversation"></i>20
+                                            </button>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
+                                        <div class="divider"></div>
+                                        <span class="is-mute">6 giờ</span>
+                                    </div>
+                                    <div class="writing replay-comment" *ngIf="isDisplayReplay">
+                                        <div contenteditable="true" class="textarea" autofocus spellcheck="false">
+                                            <p>Hi <a class="tagged-user">@Jo</a></p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="text-format">
+                                                <button class="btn"><i class="bx bx-bold"></i></button>
+                                                <button class="btn"><i class="bx bx-italic"></i></button>
+                                                <button class="btn"><i class="bx bx-underline"></i></button>
+                                                <button class="btn"><i class="bx bx-list-ul"></i></button>
+                                            </div>
+                                            <div class="group-button">
+                                                <button class="btn"><i class="bx bx-purchase-tag"></i></button>
+                                                <button class="btn primary">Gửi</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="comment">
+                                    <div class="user-banner">
+                                        <div class="user">
+                                            <div
+                                                class="avatar"
+                                                style="background-color: #fff5e9; border-color: #ffe0bd; color: #f98600"
+                                            >
+                                                AF
+                                                <span class="stat green"></span>
+                                            </div>
+                                            <h5>Albert Flores</h5>
+                                        </div>
+                                        <button class="btn dropdown"><i class="ri-more-line"></i></button>
+                                    </div>
+                                    <div class="content">
+                                        <p>
+                                            Before installing this plugin please put back again your wordpress and site url back to
+                                            http.
+                                        </p>
+                                    </div>
+                                    <div class="footer">
+                                        <button class="btn"><i class="ri-emotion-line"></i></button>
+                                        <div class="reactions">
+                                            <button class="btn react"><i class="bx bxs-like"></i>4</button>
+                                            <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
+                                            <button class="btn react" (click)="openModalCommentUser()">
+                                                <i class="bx bxs-conversation"></i>20
+                                            </button>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <a href="javascript:void(0)">Trả lời</a>
+                                        <div class="divider"></div>
+                                        <span class="is-mute">6 hour</span>
+                                    </div>
+                                    <div class="writing replay-comment" *ngIf="isDisplayReplay">
+                                        <div contenteditable="true" class="textarea" autofocus spellcheck="false">
+                                            <p>Hi <a class="tagged-user">@Jo</a></p>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="text-format">
+                                                <button class="btn"><i class="bx bx-bold"></i></button>
+                                                <button class="btn"><i class="bx bx-italic"></i></button>
+                                                <button class="btn"><i class="bx bx-underline"></i></button>
+                                                <button class="btn"><i class="bx bx-list-ul"></i></button>
+                                            </div>
+                                            <div class="group-button">
+                                                <button class="btn"><i class="bx bx-purchase-tag"></i></button>
+                                                <button class="btn primary">Send</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="load">
+                                    <button class="btn react"><i class="bx bx-refresh"></i>Tải thêm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">
+        <div class="list-container courses-curriculum-content-detail">
+            <div ngbAccordion [closeOthers]="true">
+                <div ngbAccordionItem *ngFor="let panel of panels" [collapsed]="panel !== 'First'">
+                    <h2 ngbAccordionHeader>
+                        <button ngbAccordionButton >
+                            <div style="display: grid;">
+                                <h3>{{ panel }}</h3>
+                                <h5>2/3 bài học / 21 phút</h5>
+                            </div>
+
+                        </button>
+                    </h2>
+                    <div ngbAccordionCollapse>
+                        <div ngbAccordionBody>
+                            <ng-template >
+                                <ul>
+                                    <li ngbTooltip="NumPy Introduction NumPy Introduction NumPy Introduction">
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Introduction NumPy Introduction NumPy Introduction</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">15 Min</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Getting Started</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">30 Min</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Creating Arrays</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">45 Min</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Array Indexing</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">1 Hour</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Array Slicing</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">1.5 Hour</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Array Slicing</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">1.5 Hour</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Array Slicing</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">1.5 Hour</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Array Slicing</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">1.5 Hour</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="locked popup-youtube d-flex justify-content-between align-items-center"
+                                        >
+                                            <span class="courses-name">NumPy Array Slicing</span>
+                                            <div class="courses-meta">
+                                                <span class="duration">1.5 Hour</span>
+                                                <span class="status locked"><i class="flaticon-password"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<ng-template #commented>
+    <a href="javascript:void(0)" (click)="openModalReviewCourses()"
+        ><i class="bx bx-conversation font-size-icon"></i
+    ></a>
+</ng-template>

@@ -1,0 +1,242 @@
+<div class="navbar-area" [ngClass]="{ sticky: isSticky }">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" [class.active]="classApplied">
+            <a class="navbar-brand" routerLink="/"><img src="assets/img/logo.png" alt="logo" /></a>
+            <button class="navbar-toggler" type="button" (click)="toggleClass()">
+                <span class="burger-menu">
+                    <span class="top-bar"></span>
+                    <span class="middle-bar"></span>
+                    <span class="bottom-bar"></span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="search-box">
+                    <input type="text" class="input-search" placeholder="Tìm kiếm khoá học" />
+                    <button type="submit">
+                        <i class="flaticon-search"></i>
+                    </button>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link">Khoá học <i class="bx bx-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item" *ngFor="let item of categories">
+                                <a href="javascript:void(0)"
+                                    (click)="goToViewDetailCourseOfCategory(item.id)"
+                                    routerLinkActive="active"
+                                    >{{item.name}}</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            routerLink="/san-pham"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Cửa hàng</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            routerLink="/tai-tai-lieu"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Kho tài liệu</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            routerLink="/tin-tuc"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Tin tức</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            routerLink="/about"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Về chúng tôi</a
+                        >
+                    </li>
+                    <li class="nav-item border-animation" style="margin-left: 20px; margin-right: 20px;">
+                        <a
+                            routerLink="/dao-tao-online"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Học cùng giảng viên</a
+                        >
+                    </li>
+                    <div class="others-option d-flex align-items-center">
+                        <div class="option-item">
+                            <div class="cart-btn">
+                                <a routerLink="/gio-hang"><i class="flaticon-shopping-cart"></i><span>3</span></a>
+                            </div>
+                        </div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <div class="client-info_nav cart-btn-notification">
+                                    <i class="bx bx-bell"></i><span>3</span>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a
+                                            routerLink="/thong-tin-tai-khoan"
+                                            routerLinkActive="active"
+                                            [routerLinkActiveOptions]="{ exact: true }"
+                                            ><i class="bx bxs-user-rectangle"></i>Thông tin cá nhân</a
+                                        >
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            routerLink="/khoa-hoc"
+                                            routerLinkActive="active"
+                                            [routerLinkActiveOptions]="{ exact: true }"
+                                            ><i class="bx bx-bookmark-heart"></i>Danh sách yêu thích</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <div class="client-info_nav">
+                                    <img
+                                        src="https://angular.envytheme.com/odemy-ng/assets/img/user3.jpg"
+                                        class="rounded-circle"
+                                        alt="image"
+                                    />
+                                    <div class="title">
+                                        <h3>Nguyễn Minh Tuấn</h3>
+                                        <span>Học viên</span>
+                                    </div>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a
+                                            routerLink="/thong-tin-tai-khoan"
+                                            routerLinkActive="active"
+                                            [routerLinkActiveOptions]="{ exact: true }"
+                                            ><i class="bx bxs-user-rectangle"></i>Thông tin cá nhân</a
+                                        >
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            routerLink="/khoa-hoc"
+                                            routerLinkActive="active"
+                                            [routerLinkActiveOptions]="{ exact: true }"
+                                            ><i class="bx bx-bookmark-heart"></i>Danh sách yêu thích</a
+                                        >
+                                    </li>
+                                    <li class="nav-item e">
+                                        <a
+                                            routerLink="/dashboard-profile"
+                                            routerLinkActive="active"
+                                            [routerLinkActiveOptions]="{ exact: true }"
+                                            >Danh sách khoá học<i class="bx bx-list-ul"></i
+                                        ></a>
+                                    </li>
+                                    <div class="border-profile"></div>
+
+                                    <li class="nav-item">
+                                        <a
+                                            routerLink="/tro-thanh-giang-vien"
+                                            routerLinkActive="active"
+                                            [routerLinkActiveOptions]="{ exact: true }"
+                                            ><i class="bx bxl-upwork"></i>Trở thành giảng viên</a
+                                        >
+                                    </li>
+                                    <div class="border-profile"></div>
+
+                                    <li class="nav-item">
+                                        <a
+                                            routerLink="/dang-nhap"
+                                            routerLinkActive="active"
+                                            [routerLinkActiveOptions]="{ exact: true }"
+                                            ><i class="bx bx-log-in"></i>Đăng xuất</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </ul>
+                <ul class="navbar-nav for-responsive">
+                    <li class="nav-item">
+                        <a
+                            routerLink="/dao-tao-online"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Training online</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link">Khoá học <i class="bx bx-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a
+                                    routerLink="/khoa-hoc"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    >Thiết kế cơ khí</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    routerLink="/khoa-hoc"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    >Gia công cơ khí</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    routerLink="/khoa-hoc"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    >Lập trình CNC</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            routerLink="/tai-tai-lieu"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Download tài liệu</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            routerLink="/tin-tuc"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Tin tức</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            routerLink="/about"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            >Về chúng tôi</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

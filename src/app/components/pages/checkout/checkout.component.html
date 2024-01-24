@@ -1,0 +1,93 @@
+<div class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a routerLink="/">Trang chủ</a></li>
+                <li>Thanh toán</li>
+            </ul>
+            <h2>Chuyển khoản thanh toán</h2>
+        </div>
+    </div>
+    <div class="shape9"><img src="assets/img/shape8.svg" alt="image" /></div>
+</div>
+
+<div class="checkout-area pt-3 pb-5">
+    <div class="container">
+        <div class="user-actions">
+            <i class="bx bx-log-in"></i>
+            <span>Đã là thành viên? <a routerLink="/dang-ky">Click để đăng nhập</a></span>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="billing-details">
+                    <h3 class="title">Chuyển khoản bằng mã QR</h3>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 select-box">
+                            <img
+                                src="https://res.cloudinary.com/myperson/image/upload/v1701510036/ViQR_ziiwxs.jpg"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <h5>Mở App ngân hàng Quét QR Code</h5>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="order-details">
+                    <h3 class="title">Chuyển khoản thủ công theo thông tin</h3>
+                    <div class="order-table table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="font-weight: normal">Ngân hàng</th>
+                                    <th scope="col">TP Bank</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="product-name">
+                                        <a routerLink="/chi-tiet-san-pham">Chủ tài khoản</a>
+                                    </td>
+                                    <td class="order-subtotal-price">
+                                        <span class="order-subtotal-amount">CONG TY HDNXDDEMY</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="product-name">
+                                        <a routerLink="/chi-tiet-san-pham">Số tài khoản</a>
+                                    </td>
+                                    <td class="order-subtotal-price">
+                                        <span class="order-subtotal-amount">6883688</span>
+                                        <a href="javascript:void(0)"><span class="copy-number-checkout" (click)="copyMessenger('6883688')">Sao chép</span></a> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="product-name">
+                                        <a routerLink="/chi-tiet-san-pham">Số tiền</a>
+                                    </td>
+                                    <td class="order-subtotal-price">
+                                        <span class="order-subtotal-amount">$200.00</span>
+                                        <a href="javascript:void(0)"><span class="copy-number-checkout" (click)="copyMessenger('6883688')">Sao chép</span></a> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="product-name">
+                                        <a routerLink="/chi-tiet-san-pham">Nội dung</a>
+                                    </td>
+                                    <td class="order-subtotal-price">
+                                        <span class="order-subtotal-amount">DH388981 84966244957</span>
+                                        <a href="javascript:void(0)"><span class="copy-number-checkout" (click)="copyMessenger('6883688')">Sao chép</span></a> 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="payment-box">
+                        <a routerLink="/" class="default-btn" style="width: 100%">Tiếp tục mua sắm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

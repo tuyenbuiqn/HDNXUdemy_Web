@@ -1,0 +1,67 @@
+{
+  "MasterData": {
+    "CreateCategory": "master-data/category",
+    "GetCategory": "master-data/category",
+    "UpdateStatusCategory" : "master-data/category/{0}",
+    "UpdateInformationCategory" : "master-data/category",
+    "DeleteCategory" : "master-data/category/delete/{0}",
+    "CreateBanner": "master-data/banner",
+    "GetBanners": "master-data/banner",
+    "UpdateStatusBanner" : "master-data/banner/status/{0}",
+    "UpdateBanner" : "master-data/banner/{0}",
+    "ListFileTypeUpload" : "master-data/list-file-type-upload",
+    "UpdateInformationConfigSystem": "master-data/config-system/{0}",
+    "GetListConfigSystem": "master-data/config-system",
+    "GetListOfFileTypeUpload": "master-data/list-of-file-type-upload"
+  },
+  "Course": {
+    "CreateCourse": "master-course/course",
+    "UpdateStatusCourse": "master-course/course/status/{0}",
+    "UpdateInformationCourse": "master-course/course/{0}",
+    "GetListAllCourse": "master-course/course",
+    "GetCourses": "master-course/course/{0}",
+    "CreateContentCourse": "master-course/course-content",
+    "UpdateStatusContentCourse": "master-course/course-content/status/{0}",
+    "UpdateInformationContentCourse": "master-course/course-content/{0}",
+    "GetListContentCourse": "master-course/course-content/course/{0}",
+    "GetContentCourse": "master-course/course-content/{0}",
+    "CreateContentCourseDetails": "master-course/course-content-details",
+    "UpdateStatusContentCourseDetails": "master-course/course-content-details/status/{0}",
+    "UpdateInformationContentCourseDetails": "master-course/course-content-details/{0}",
+    "GetListContentCourseDetails" :  "master-course/course-content-details/course/{0}",
+    "GetContentCourseDetails" :  "master-course/course-content-details/{0}",
+    "GetListCourseAsCategory" : "master-course/course/category/{0}"
+  },
+  "UploadDataCloud" :{
+    "DeleteFileOnCloud": "upload-to-cloud/cloudinary/{0}",
+    "CreateFileSoftware": "upload-to-cloud/file-software",
+    "UpdateStatusSoftware": "upload-to-cloud/file-software/status/{0}",
+    "UpdateInformationSoftware": "upload-to-cloud/file-software/{0}",
+    "GetListFileSoftware": "upload-to-cloud/file-software"
+  },
+  "Student" : {
+    "CreateStudent":"student",
+    "UpdateStatusStudent" : "student/status/{0}",
+    "UpdateStudent" : "student/{0}",
+    "GetListStudents": "student",
+    "GetStudent": "student/{0}",
+    "CreateStudentPromotions" : "student/student-promotion",
+    "UpdateStatusStudentPromotions" : "student/student-promotion/status/{0}",
+    "UpdateInformationStudentPromotions" : "student/student-promotion/{0}",
+    "GetListStudentPromotions": "student/student-promotion/",
+    "GetStudentPromotions" : "student/student-promotion/{0}",
+    "CreateStudentProcess" : "student/student-process",
+    "UpdateStatusStudentProcess": "student/student-process/status/{0}",
+    "UpdateInformationStudentProcess": "student/student-process/{0}",
+    "GetListStudentProcess": "student/student-process",
+    "GetStudentProcess": "student/student-process/{0}",
+    "CreateBookmarkCourse": "student/bookmark-course",
+    "UpdateStatusBookmarkCourse" : "student/bookmark-course/status/{0}",
+    "GetListBookmarkCourse" : "student/bookmark-course/{0}",
+    "RemoveBookmarkCourse": "student/bookmark-course/{0}",
+    "GetListUserManager": "student/account-user"
+  },
+  "Home": {
+    "GetDataForHome" :"home"
+  }
+}
