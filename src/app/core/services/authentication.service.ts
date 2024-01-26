@@ -9,30 +9,11 @@ import { Subject } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationServices {
-
-
-    private authChangeSub = new Subject<boolean>();
-    private extAuthChangeSub = new Subject<SocialUser>();
-    public authChanged = this.authChangeSub.asObservable();
-    public extAuthChanged = this.extAuthChangeSub.asObservable();
-
     constructor(
         private transferHttp: TransferHttp,
-        private readonly externalAuthService: SocialAuthService
     ) {
 
-        this.externalAuthService.authState.subscribe((user) => {
-            this.extAuthChangeSub.next(user);
-        });
-    }
 
-    clientLoginWithGoogle() {
-        console.log("clientLoginWithGoogle");
-        this.externalAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    }
-
-    clientLogoutGoogle() {
-        this.externalAuthService.signOut();
     }
 
     registerUser(email: string, password: string, name: string, phone: string) {
@@ -45,13 +26,13 @@ export class AuthenticationServices {
         return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<LoginRegister>) => res));
     }
 
-    loginWithGoogle(credential: string) {
-        const ApiUrl = LinkSettings.GetResLinkSetting('Authentication', 'LoginWithGoogle', credential);
-        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<LoginRegister>) => res));
+    loginWithGoogle(model: SocialUser) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Authentication', 'LoginWithGoogle');
+        return this.transferHttp.post(ApiUrl, model).pipe(map((res: RepositoryModel<LoginRegister>) => res));
     }
 
-    loginWithFaceBook(credential: string) {
-        const ApiUrl = LinkSettings.GetResLinkSetting('Authentication', 'LoginWithFaceBook', credential);
-        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<LoginRegister>) => res));
+    loginWithFaceBook(model: SocialUser) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Authentication', 'LoginWithFaceBook');
+        return this.transferHttp.post(ApiUrl, model).pipe(map((res: RepositoryModel<LoginRegister>) => res));
     }
 }

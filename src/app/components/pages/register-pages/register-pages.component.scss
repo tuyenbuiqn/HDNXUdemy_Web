@@ -82,8 +82,10 @@
             padding-left: 0;
 
             li {
-                display: block;
+                display: flex;
                 margin-bottom: 15px;
+                justify-content: center;
+                width: 100%;
 
                 a {
                     transform: .5s;
@@ -123,6 +125,12 @@
             }
         }
     }
+}
+
+.login-social {
+    display: flex;
+    justify-content: center;
+    width: 400px;
 }
 
 /* Max width 767px */

@@ -1,5 +1,7 @@
+import { FacebookLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationServices } from 'src/app/core/services/authentication.service';
 import { MessengerServices } from 'src/app/core/services/messenger.service';
 
@@ -11,10 +13,14 @@ import { MessengerServices } from 'src/app/core/services/messenger.service';
 export class RegisterPagesComponent implements OnInit {
 
   registerForm!: UntypedFormGroup;
+  isLoading = false;
   constructor(
     private formBuilder: FormBuilder,
     private readonly authenticationServices: AuthenticationServices,
-    private readonly messengerServices: MessengerServices
+    private readonly messengerServices: MessengerServices,
+    private readonly externalAuthService: SocialAuthService,
+    private readonly authenticationService: AuthenticationServices,
+    private readonly router: Router,
   ) { }
 
   ngOnInit() {
@@ -24,17 +30,53 @@ export class RegisterPagesComponent implements OnInit {
       password: [''],
       phone: ['', [Validators.required]],
     });
+
+    this.externalAuthService.authState.subscribe((user: SocialUser) => {
+      if (user.id && user.idToken) {
+        this.loginWithGoogle(user);
+      }
+    });
   }
 
   registerUser() {
-    this.authenticationServices.registerUser(this.registerForm.value.email, 
-      this.registerForm.value.password, this.registerForm.value.name, this.registerForm.value.phone).subscribe(res => {
+    this.authenticationServices.registerUser(this.registerForm.value.name,
+      this.registerForm.value.password, this.registerForm.value.email, this.registerForm.value.phone).subscribe(res => {
+        if (res.retCode == 0 && res.systemMessage == '') {
+          this.registerForm.reset();
+        } else {
+          this.messengerServices.errorWithIssue();
+        }
+      })
+  }
+
+  loginWithGoogle(model: SocialUser) {
+    this.isLoading = true;
+    this.authenticationService.loginWithGoogle(model).subscribe((res) => {
       if (res.retCode == 0 && res.systemMessage == '') {
-        this.registerForm.reset();
+        this.isLoading = false;
+        this.router.navigate([`/`]);
       } else {
+        this.isLoading = false;
         this.messengerServices.errorWithIssue();
       }
-    })
+    });
+  }
+
+  loginWithFaceBook() {
+    this.externalAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((res: SocialUser) => {
+      this.isLoading = true;
+      if (res.authToken && res.id) {
+        this.authenticationService.loginWithFaceBook(res).subscribe((res) => {
+          if (res.retCode == 0 && res.systemMessage == '') {
+            this.isLoading = false;
+            this.router.navigate([`/`]);
+          } else {
+            this.isLoading = false;
+            this.messengerServices.errorWithIssue();
+          }
+        });
+      }
+    });
   }
 
 }

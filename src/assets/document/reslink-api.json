@@ -67,7 +67,7 @@
   "Authentication": {
     "RegisterUser": "authentication/register/{0}/{1}/{2}/{3}",
     "LoginNormalAccount": "authentication/login/{0}/{1}",
-    "LoginWithGoogle": "authentication/login-google/{0}",
-    "LoginWithFaceBook": "authentication/login-facebook/{0}"
+    "LoginWithGoogle": "authentication/login-google",
+    "LoginWithFaceBook": "authentication/login-facebook"
   }
 }

@@ -67,8 +67,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { HdnxLoadingComponent } from './components/common/hdnx-loading/hdnx-loading.component';
 import { RegisterErrorComponent } from './components/pages/register-error/register-error.component';
-import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { environment } from 'src/environments/environment';
+import { SendEmailAfterRegisterComponent } from './components/pages/send-email-after-register/send-email-after-register.component';
 
 @NgModule({
   declarations: [
@@ -124,7 +125,7 @@ import { environment } from 'src/environments/environment';
     UserReviewCoursesComponent,
     HdnxLoadingComponent,
     RegisterErrorComponent,
-
+    SendEmailAfterRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -149,12 +150,17 @@ import { environment } from 'src/environments/environment';
   ],
   providers: [TransferHttp, {
     provide: 'SocialAuthServiceConfig', useValue: {
-      
-      autoLogin: false, providers: [
+      autoLogin: false,
+      providers: [
         {
           id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider(environment.clientIdGoogle),
+          provider: new GoogleLoginProvider(environment.clientIdGoogle, {
+            oneTapEnabled: true
+          }),
 
+        }, {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider(environment.facebookId)
         }
       ], onError: (error) => {
         console.log(error);
