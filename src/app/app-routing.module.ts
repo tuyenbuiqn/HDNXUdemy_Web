@@ -31,6 +31,7 @@ import { AccountProfileDetailsComponent } from './components/pages/account-profi
 import { TrainingCoursesComponent } from './components/pages/training-courses-list/training-courses-list.component';
 import { TrainingCoursesDetailsComponent } from './components/pages/training-courses-details/training-courses-details.component';
 import { ProfileTeacherComponent } from './components/pages/profile-teacher/profile-teacher.component';
+import { RegisterErrorComponent } from './components/pages/register-error/register-error.component';
 
 const routes: Routes = [
     { path: '', component: ElearningSchoolComponent },
@@ -65,7 +66,7 @@ const routes: Routes = [
     { path: 'dao-tao-online-chi-tiet', component: TrainingCoursesDetailsComponent },
     // Here add new pages component
 
-    { path: '**', component: ErrorComponent },
+    { path: 'dang-ky-khong-thanh-cong', component: RegisterErrorComponent },
 ];
 
 @NgModule({

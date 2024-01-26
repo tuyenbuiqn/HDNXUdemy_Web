@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Course } from 'src/app/models/models/course';
 import { ListContentData } from 'src/app/models/respone_model/home-data';
@@ -44,5 +45,7 @@ export class CoursesComponent implements OnInit {
             }
         }
     }
+
+    bookMarkCourse(){}
 
 }

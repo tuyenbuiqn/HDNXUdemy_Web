@@ -26,4 +26,5 @@ export class Course {
     processCourseName?: string;
     processCourse: number;
     fileUploadUrlStream?: string;
+    isBookMark ?: boolean;
 }

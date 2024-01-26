@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountUpModule } from 'ngx-countup';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
 import { LightboxModule } from 'ngx-lightbox';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LightgalleryModule } from 'lightgallery/angular';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -66,6 +66,9 @@ import { TransferHttp } from './core/transfer-http/transfer-http';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { HdnxLoadingComponent } from './components/common/hdnx-loading/hdnx-loading.component';
+import { RegisterErrorComponent } from './components/pages/register-error/register-error.component';
+import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -119,7 +122,9 @@ import { HdnxLoadingComponent } from './components/common/hdnx-loading/hdnx-load
     ProfileTeacherComponent,
     UserCommentCoursesComponent,
     UserReviewCoursesComponent,
-    HdnxLoadingComponent
+    HdnxLoadingComponent,
+    RegisterErrorComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -138,8 +143,24 @@ import { HdnxLoadingComponent } from './components/common/hdnx-loading/hdnx-load
     NgbTooltipModule,
     HttpClientModule,
     PaginationModule.forRoot(),
+    ReactiveFormsModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule
   ],
-  providers: [TransferHttp],
+  providers: [TransferHttp, {
+    provide: 'SocialAuthServiceConfig', useValue: {
+      
+      autoLogin: false, providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(environment.clientIdGoogle),
+
+        }
+      ], onError: (error) => {
+        console.log(error);
+      }
+    } as SocialAuthServiceConfig
+  }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

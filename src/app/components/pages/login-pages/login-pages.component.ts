@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationServices } from 'src/app/core/services/authentication.service';
 
 @Component({
   selector: 'app-login-pages',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-pages.component.scss']
 })
 export class LoginPagesComponent implements OnInit {
+  constructor(
+    private readonly authenticationService: AuthenticationServices,
+  ) { }
 
-  constructor() { }
+  ngOnInit() { }
 
-  ngOnInit() {
+  loginWithGoogle = () =>  {
+    this.authenticationService.clientLoginWithGoogle();
+    this.authenticationService.extAuthChanged.subscribe(res => {
+      console.log("login", res);
+    })
+  }
+
+  loginWithFaceBook() {
+
   }
 
 }
