@@ -53,8 +53,8 @@
                                 {{item.shortDescription}}
                             </p>
                             <ul class="courses-box-footer d-flex justify-content-between align-items-center">
-                                <li><i class="bx bx-money"></i><span class="ps-2">{{item.isDiscount == true ? (item.percentDiscount | currency: 'VND':'symbol':'1.0-0') : (item.priceOfCourse | currency: 'VND':'symbol':'1.0-0')}}</span> </li>
-                                <li><del><i class="bx bx-money"></i><span class="ps-2">{{item.isDiscount == true ? (item.priceOfCourse | currency: 'VND':'symbol':'1.0-0') : (item.percentDiscount | currency: 'VND':'symbol':'1.0-0')}}</span></del>
+                                <li><i class="bx bx-money"></i><span class="ps-2">{{item.isDiscount == true ? (item.priceOfDiscount | currency: 'VND':'symbol':'1.0-0') : (item.priceOfCourse | currency: 'VND':'symbol':'1.0-0')}}</span> </li>
+                                <li><del><i class="bx bx-money"></i><span class="ps-2">{{item.isDiscount == true ? (item.priceOfCourse | currency: 'VND':'symbol':'1.0-0') : (item.priceOfDiscount | currency: 'VND':'symbol':'1.0-0')}}</span></del>
                                 </li>
                             </ul>
                             <ul class="courses-box-footer d-flex justify-content-between align-items-center">

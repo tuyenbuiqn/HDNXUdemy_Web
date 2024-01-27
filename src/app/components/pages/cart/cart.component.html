@@ -50,7 +50,7 @@
                             </div>
                         </td>
                         <td class="product-subtotal">
-                            <span class="subtotal-amount">{{item.isDiscount == true ? (item?.percentDiscount | currency: 'VND':'symbol':'1.0-0') : (item.priceOfCourse | currency: 'VND':'symbol':'1.0-0') }}</span>
+                            <span class="subtotal-amount">{{item.isDiscount == true ? (item?.priceOfDiscount | currency: 'VND':'symbol':'1.0-0') : (item.priceOfCourse | currency: 'VND':'symbol':'1.0-0') }}</span>
                             <a href="javascript:void(0)" (click)="removeItemOnCart(item)" class="remove"><i class="bx bx-trash"></i></a>
                         </td>
                     </tr>

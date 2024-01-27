@@ -16,7 +16,7 @@ export class CartServices {
 
         let item: GetCourseWithDetailsContent = this.courseItems.find(item => item.id == course.id) as GetCourseWithDetailsContent;
         if (item) { return } else {
-            course.totalOrder = course.isDiscount == true ? course.percentDiscount : course.priceOfCourse;
+            course.totalOrder = course.isDiscount == true ? course.priceOfDiscount : course.priceOfCourse;
             this.courseItems.push(course)
         }
         this.cartUpdates.next();

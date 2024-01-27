@@ -382,8 +382,8 @@
                     <ul class="info">
                         <li class="price">
                             <div class="d-flex justify-content-center align-items-center">
-                                {{courseContentCourse?.isDiscount == true ? (courseContentCourse?.priceOfCourse | currency: 'VND':'symbol':'1.0-0') : (courseContentCourse?.percentDiscount | currency: 'VND':'symbol':'1.0-0')}}
-                                <span style="font-size: smaller"><del>{{courseContentCourse?.isDiscount == true ? (courseContentCourse?.percentDiscount | currency: 'VND':'symbol':'1.0-0') : (courseContentCourse?.priceOfCourse | currency: 'VND':'symbol':'1.0-0')}}</del></span>
+                                {{courseContentCourse?.isDiscount == true ? (courseContentCourse?.priceOfCourse | currency: 'VND':'symbol':'1.0-0') : (courseContentCourse?.priceOfDiscount | currency: 'VND':'symbol':'1.0-0')}}
+                                <span style="font-size: smaller"><del>{{courseContentCourse?.isDiscount == true ? (courseContentCourse?.priceOfDiscount | currency: 'VND':'symbol':'1.0-0') : (courseContentCourse?.priceOfCourse | currency: 'VND':'symbol':'1.0-0')}}</del></span>
                             </div>
                         </li>
                         <li>

@@ -8,7 +8,7 @@ export class Course {
     duration?: string;
     priceOfCourse?: number;
     isDiscount?: boolean;
-    percentDiscount?: number;
+    priceOfDiscount?: number;
     isFree: boolean;
     typeOfCourse?: string;
     introduce: string;
