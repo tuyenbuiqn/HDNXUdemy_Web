@@ -70,6 +70,7 @@ import { RegisterErrorComponent } from './components/pages/register-error/regist
 import { FacebookLoginProvider, GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { environment } from 'src/environments/environment';
 import { SendEmailAfterRegisterComponent } from './components/pages/send-email-after-register/send-email-after-register.component';
+import { NotificationUsersComponent } from './components/pages/notification-users/notification-users.component';
 
 @NgModule({
   declarations: [
@@ -125,7 +126,8 @@ import { SendEmailAfterRegisterComponent } from './components/pages/send-email-a
     UserReviewCoursesComponent,
     HdnxLoadingComponent,
     RegisterErrorComponent,
-    SendEmailAfterRegisterComponent
+    SendEmailAfterRegisterComponent,
+    NotificationUsersComponent
   ],
   imports: [
     BrowserModule,

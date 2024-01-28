@@ -1,3 +1,6 @@
+import { StudentUser } from "src/app/models/models/student-user";
+import { LoginRegister } from "src/app/models/respone_model/login-register-respone";
+
 export class LocalStorageConfig {
 
   private static currentUserKey = 'currentUser';
@@ -6,19 +9,15 @@ export class LocalStorageConfig {
     localStorage.removeItem(this.currentUserKey);
   }
 
-  public static SetUser(pJSONStringify: string) {
-    localStorage.setItem(this.currentUserKey, pJSONStringify);
+  public static SetUser(pJSONStringify: LoginRegister) {
+    const valueUpdate = JSON.stringify(pJSONStringify);
+    localStorage.setItem(this.currentUserKey, valueUpdate);
   }
 
-  public static GetUser() {
+  public static GetUser(): LoginRegister {
     const user = localStorage.getItem(this.currentUserKey);
     if (user === null) return null;
-    return JSON.parse(user ?? '');
-  }
-
-  public static GetParishId() {
-    const idParish = JSON.parse(localStorage.getItem(this.currentUserKey) ?? '').parishId;
-    return idParish;
+    return <LoginRegister>JSON.parse(user ?? '');
   }
 
   public static GetCurrentYearActive(): string {

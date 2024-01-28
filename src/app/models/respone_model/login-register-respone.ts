@@ -8,4 +8,5 @@ export class LoginRegister {
     pictureUrl: string;
     roleId: number;
     token: string;
+    roleName: string;
 }

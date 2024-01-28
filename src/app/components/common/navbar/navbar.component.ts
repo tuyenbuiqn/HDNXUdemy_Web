@@ -1,8 +1,12 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationServices } from 'src/app/core/services/authentication.service';
 import { CartServices } from 'src/app/core/services/cart.service';
 import { CategoryServices } from 'src/app/core/services/category.service';
+import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
 import { CategoryModel } from 'src/app/models/models/category';
+import { StudentUser } from 'src/app/models/models/student-user';
+import { LoginRegister } from 'src/app/models/respone_model/login-register-respone';
 
 @Component({
     selector: 'app-navbar',
@@ -14,6 +18,7 @@ export class NavbarComponent implements OnInit {
     // Navbar Sticky
     isSticky: boolean = false;
     categories: CategoryModel[] = [];
+    userStudent: LoginRegister | undefined | null = null;
     public count: number = 0;
     @HostListener('window:scroll', ['$event'])
     checkScroll() {
@@ -27,9 +32,14 @@ export class NavbarComponent implements OnInit {
     constructor(
         private readonly categoryServices: CategoryServices,
         private readonly router: Router,
-        private readonly cartServices : CartServices,) { }
+        private readonly cartServices: CartServices,
+        private readonly authenticationServices: AuthenticationServices,) { }
 
     ngOnInit(): void {
+        this.authenticationServices.getDataUploadAfterLogin().subscribe((res) => {
+            this.userStudent = res;
+        })
+        this.getInformationOfUser();
         this.loadDataCategory();
         this.cartServices.cartUpdates$.subscribe(() => {
             this.count = this.cartServices.count;
@@ -41,19 +51,11 @@ export class NavbarComponent implements OnInit {
         this.classApplied = !this.classApplied;
     }
 
-    /**
- * Set user option link inner HTML
- * @param obj 
- * @returns {string}
- */
     userOptionLinkHTML(obj: any): string {
         return obj.icon + '<span class="ms-2">' + obj.name + '</span>';
     }
 
 
-    /**
- * User logout
- */
     logout() {
         // this.loginService.userLogout();
     }
@@ -68,6 +70,14 @@ export class NavbarComponent implements OnInit {
 
     goToViewDetailCourseOfCategory(id: number) {
         this.router.navigate([`/khoa-hoc/${id}`]);
+    }
+
+    goToNotification() {
+        this.router.navigate(['/thong-bao'])
+    }
+
+    getInformationOfUser() {
+        this.userStudent = LocalStorageConfig.GetUser();
     }
 
 }

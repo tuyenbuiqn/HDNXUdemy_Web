@@ -4,6 +4,7 @@ import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationServices } from 'src/app/core/services/authentication.service';
 import { MessengerServices } from 'src/app/core/services/messenger.service';
+import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
 
 @Component({
   selector: 'app-login-pages',
@@ -39,6 +40,8 @@ export class LoginPagesComponent implements OnInit {
   loginWithGoogle(model: SocialUser) {
     this.authenticationService.loginWithGoogle(model).subscribe((res) => {
       if (res.retCode == 0 && res.systemMessage == '') {
+        LocalStorageConfig.SetUser(res.data);
+        this.authenticationService.updateAfterLogin(res.data);
         this.router.navigate([`/`]);
       } else {
         this.messengerServices.errorWithIssue();
@@ -53,6 +56,8 @@ export class LoginPagesComponent implements OnInit {
         this.authenticationService.loginWithFaceBook(res).subscribe((res) => {
           if (res.retCode == 0 && res.systemMessage == '') {
             this.isLoading = false;
+            LocalStorageConfig.SetUser(res.data);
+            this.authenticationService.updateAfterLogin(res.data);
             this.router.navigate([`/`]);
           } else {
             this.isLoading = false;
@@ -68,6 +73,8 @@ export class LoginPagesComponent implements OnInit {
     this.authenticationService.loginNormalAccount(this.loginForm.value.email, this.loginForm.value.password).subscribe((res) => {
       if (res.retCode == 0 && res.systemMessage == '') {
         this.isLoading = false;
+        LocalStorageConfig.SetUser(res.data);
+        this.authenticationService.updateAfterLogin(res.data);
         this.router.navigate([`/`]);
       } else {
         this.isLoading = false;

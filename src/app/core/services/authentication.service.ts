@@ -4,17 +4,15 @@ import { LinkSettings } from "src/app/library/linksetting/LinkSetting";
 import { map } from "rxjs/operators";
 import { RepositoryModel } from "src/app/models/models/repository_base";
 import { LoginRegister } from "src/app/models/respone_model/login-register-respone";
-import { GoogleLoginProvider, SocialAuthService, SocialUser } from "@abacritt/angularx-social-login";
-import { Subject } from "rxjs";
+import { SocialUser } from "@abacritt/angularx-social-login";
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationServices {
+    loginDataUpdate$ = new BehaviorSubject<LoginRegister>(new LoginRegister());
     constructor(
         private transferHttp: TransferHttp,
-    ) {
-
-
-    }
+    ) { }
 
     registerUser(email: string, password: string, name: string, phone: string) {
         const ApiUrl = LinkSettings.GetResLinkSetting('Authentication', 'RegisterUser', email, password, name, phone);
@@ -34,5 +32,13 @@ export class AuthenticationServices {
     loginWithFaceBook(model: SocialUser) {
         const ApiUrl = LinkSettings.GetResLinkSetting('Authentication', 'LoginWithFaceBook');
         return this.transferHttp.post(ApiUrl, model).pipe(map((res: RepositoryModel<LoginRegister>) => res));
+    }
+
+    updateAfterLogin(dataLogin: LoginRegister) {
+        this.loginDataUpdate$.next(dataLogin);
+    }
+
+    getDataUploadAfterLogin(): Observable<LoginRegister> {
+        return this.loginDataUpdate$.asObservable();
     }
 }

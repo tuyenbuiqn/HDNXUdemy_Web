@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MessengerServices } from 'src/app/core/services/messenger.service';
 import { StudentServices } from 'src/app/core/services/student.service';
+import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
 import { StudentUser } from 'src/app/models/models/student-user';
 
 @Component({
@@ -26,7 +27,6 @@ export class AccountProfileDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getDataOfStudent();
-
     this.informationOfUser = this.formBuilder.group({
       id: [],
       name: ['', Validators.required],
@@ -38,8 +38,9 @@ export class AccountProfileDetailsComponent implements OnInit {
   }
 
   getDataOfStudent() {
+    const getUserLocal = LocalStorageConfig.GetUser();
     this.isLoading = true;
-    this.studentServices.getStudent(1).subscribe(res => {
+    this.studentServices.getStudent(getUserLocal.userId).subscribe(res => {
       if (res.retCode == 0 && res.systemMessage == '') {
         this.student = res.data;
         this.isLoading = false;

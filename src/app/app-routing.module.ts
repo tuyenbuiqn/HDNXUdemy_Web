@@ -33,6 +33,7 @@ import { TrainingCoursesDetailsComponent } from './components/pages/training-cou
 import { ProfileTeacherComponent } from './components/pages/profile-teacher/profile-teacher.component';
 import { RegisterErrorComponent } from './components/pages/register-error/register-error.component';
 import { SendEmailAfterRegisterComponent } from './components/pages/send-email-after-register/send-email-after-register.component';
+import { NotificationUsersComponent } from './components/pages/notification-users/notification-users.component';
 
 const routes: Routes = [
     { path: '', component: ElearningSchoolComponent },
@@ -69,6 +70,7 @@ const routes: Routes = [
 
     { path: 'dang-ky-khong-thanh-cong', component: RegisterErrorComponent },
     { path: 'gui-email-dang-ky-thanh-cong', component: SendEmailAfterRegisterComponent },
+    { path: 'thong-bao', component: NotificationUsersComponent },
 ];
 
 @NgModule({

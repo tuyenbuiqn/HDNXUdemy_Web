@@ -37,12 +37,12 @@ export class TransferHttp {
     if (LocalStorageConfig.GetUser() != null) {
       // tslint:disable-next-line: prefer-const
       let currentUser = LocalStorageConfig.GetUser();
-      const returnToken = currentUser.Data;
-      if (currentUser && returnToken.Token) {
+      const returnToken = currentUser.token;
+      if (currentUser && returnToken) {
         httpHeaders = new HttpHeaders(
           {
             // tslint:disable-next-line: object-literal-key-quotes
-            'Authorization': 'Bearer ' + returnToken.Token,
+            'Authorization': `Bearer ${returnToken}`,
             'Content-Type': sContent
           },
         );

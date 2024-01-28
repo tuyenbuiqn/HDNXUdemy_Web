@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationCancel, NavigationEnd } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { filter } from 'rxjs/operators';
+import { NotificationHubService } from './core/services/hub-notification.service';
 declare let $: any;
 
 @Component({
@@ -19,11 +20,14 @@ export class AppComponent {
     location: any;
     routerSubscription: any;
 
-    constructor(private router: Router) {
+    constructor(
+        private router: Router,
+        private readonly hubNotificationService : NotificationHubService) {
     }
 
     ngOnInit(){
         this.recallJsFuntions();
+        this.hubNotificationService.startConnection();
     }
 
     recallJsFuntions() {
