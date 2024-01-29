@@ -23,6 +23,8 @@
     "@microsoft/signalr": "^8.0.0",
     "@mux/mux-player": "^1.11.4",
     "@ng-bootstrap/ng-bootstrap": "^15.1.2",
+    "@ng-icons/bootstrap-icons": "^26.3.0",
+    "@ng-icons/core": "^26.3.0",
     "animate.css": "^4.1.1",
     "artplayer": "^5.1.1",
     "bootstrap": "^5.3.2",
@@ -35,7 +37,7 @@
     "ngx-scrolltop": "^6.0.0",
     "ngx-simple-countdown": "^16.0.0",
     "ngx-stars": "^1.6.5",
-    "rxjs": "~6.5.5",
+    "rxjs": "^7.5.2",
     "sweetalert2": "^11.10.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.13.0"

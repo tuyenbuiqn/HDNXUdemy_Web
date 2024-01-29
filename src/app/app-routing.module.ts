@@ -34,6 +34,7 @@ import { ProfileTeacherComponent } from './components/pages/profile-teacher/prof
 import { RegisterErrorComponent } from './components/pages/register-error/register-error.component';
 import { SendEmailAfterRegisterComponent } from './components/pages/send-email-after-register/send-email-after-register.component';
 import { NotificationUsersComponent } from './components/pages/notification-users/notification-users.component';
+import { AccountBookmarkCourseComponent } from './components/pages/account-bookmark-course/account-bookmark-course.component';
 
 const routes: Routes = [
     { path: '', component: ElearningSchoolComponent },
@@ -62,7 +63,7 @@ const routes: Routes = [
     { path: 'chi-tiet-noi-dung-khoa-hoc', component: CoursesContentDetailComponent },
     { path: 'dang-nhap', component: LoginPagesComponent },
     { path: 'dang-ki', component: RegisterPagesComponent },
-    { path: 'dashboard-profile', component: AccountProfileCoursesComponent },
+    { path: 'khoa-hoc-hoc-vien', component: AccountProfileCoursesComponent },
     { path: 'thong-tin-tai-khoan', component: AccountProfileDetailsComponent },
     { path: 'dao-tao-online', component: TrainingCoursesComponent },
     { path: 'dao-tao-online-chi-tiet', component: TrainingCoursesDetailsComponent },
@@ -71,6 +72,7 @@ const routes: Routes = [
     { path: 'dang-ky-khong-thanh-cong', component: RegisterErrorComponent },
     { path: 'gui-email-dang-ky-thanh-cong', component: SendEmailAfterRegisterComponent },
     { path: 'thong-bao', component: NotificationUsersComponent },
+    { path: 'khoa-hoc-yeu-thich', component: AccountBookmarkCourseComponent },
 ];
 
 @NgModule({

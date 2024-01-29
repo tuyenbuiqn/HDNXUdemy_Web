@@ -71,6 +71,9 @@ import { FacebookLoginProvider, GoogleLoginProvider, GoogleSigninButtonModule, S
 import { environment } from 'src/environments/environment';
 import { SendEmailAfterRegisterComponent } from './components/pages/send-email-after-register/send-email-after-register.component';
 import { NotificationUsersComponent } from './components/pages/notification-users/notification-users.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NgIconsModule } from '@ng-icons/core';
+import { bootstrapBookmark, bootstrapBookmarkCheckFill } from '@ng-icons/bootstrap-icons';
 
 @NgModule({
   declarations: [
@@ -146,9 +149,11 @@ import { NotificationUsersComponent } from './components/pages/notification-user
     NgbTooltipModule,
     HttpClientModule,
     PaginationModule.forRoot(),
+    BsDropdownModule.forRoot(),
     ReactiveFormsModule,
     SocialLoginModule,
-    GoogleSigninButtonModule
+    GoogleSigninButtonModule,
+    NgIconsModule.withIcons({ bootstrapBookmark, bootstrapBookmarkCheckFill }),
   ],
   providers: [TransferHttp, {
     provide: 'SocialAuthServiceConfig', useValue: {

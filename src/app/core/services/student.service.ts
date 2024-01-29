@@ -4,6 +4,8 @@ import { StudentUser } from "src/app/models/models/student-user";
 import { LinkSettings } from "src/app/library/linksetting/LinkSetting";
 import { map } from "rxjs/operators";
 import { RepositoryModel } from "src/app/models/models/repository_base";
+import { BookMarkCourse } from "src/app/models/models/book-mark";
+import { Course } from "src/app/models/models/course";
 
 @Injectable({ providedIn: 'root' })
 export class StudentServices {
@@ -39,5 +41,25 @@ export class StudentServices {
     getUserOfProject() {
         const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'GetListUserManager');
         return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<StudentUser[]>) => res));
+    }
+
+    createBookmarkCourse(model: BookMarkCourse) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'CreateBookmarkCourse');
+        return this.transferHttp.post(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    updateStatusBookmarkCourse(model: BookMarkCourse) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'UpdateStatusBookmarkCourse', model.id);
+        return this.transferHttp.put(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    getListBookmarkCourse(idUser: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'GetListBookmarkCourse', idUser);
+        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<Course[]>) => res));
+    }
+
+    removeBookmarkCourse(id: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'RemoveBookmarkCourse', id);
+        return this.transferHttp.delete(ApiUrl).pipe(map((res: RepositoryModel<boolean>) => res));
     }
 }

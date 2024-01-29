@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Course } from 'src/app/models/models/course';
+import { MessengerServices } from 'src/app/core/services/messenger.service';
+import { StudentServices } from 'src/app/core/services/student.service';
+import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
+import { BookMarkCourse } from 'src/app/models/models/book-mark';
 import { ListContentData } from 'src/app/models/respone_model/home-data';
 
 @Component({
@@ -12,7 +14,10 @@ import { ListContentData } from 'src/app/models/respone_model/home-data';
 })
 export class CoursesComponent implements OnInit {
 
-    constructor() { }
+    constructor(
+        private readonly messengerServices: MessengerServices,
+        private studentServices: StudentServices,
+    ) { }
 
     ngOnInit(): void { }
     @Input() listCourse?: ListContentData | undefined | null = null;
@@ -46,6 +51,27 @@ export class CoursesComponent implements OnInit {
         }
     }
 
-    bookMarkCourse(){}
+    bookMarkCourse(idCourser: number) {
+        const user = LocalStorageConfig.GetUser();
+        if (user) {
+            var dataInsert: BookMarkCourse = {
+                idStudent: user.userId,
+                idCourse: idCourser
+            }
+            this.studentServices.createBookmarkCourse(dataInsert).subscribe((res) => {
+                if (res.retCode === 0 && res.systemMessage === '') {
+                    this.listCourse.listDataOfContent.length
+                    this.listCourse.listDataOfContent.forEach((item) => {
+                        if (item.id === idCourser) {
+                            item.isBookMark = !item.isBookMark;
+                        }
+                    })
+                }
+            });
+
+        } else {
+            this.messengerServices.warringBookMarkCourse();
+        }
+    }
 
 }

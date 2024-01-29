@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [hidden]="!listCourse.listDataOfContent.length">
     <div class="title-of-course">
         <h4 class="sub-title "><i class='flaticon-shopping-cart'></i> {{listCourse.nameContent}}</h4>
         <a class="sub-title" href="http://" target="_blank" rel="noopener noreferrer">Xem thêm</a>
@@ -12,13 +12,17 @@
                             <a routerLink="/chi-tiet-khoa-hoc/{{item.id}}" class="d-block image">
                                 <img src="{{item.pictureUrl}}" alt="image">
                             </a>
-                            <a href="javascript:void(0)" class="fav "><i class="flaticon-heart" ngClass="{{item.isBookMark ? 'active' : ''}}"></i></a>
+
                             <div [hidden]="!item.isDiscount" class="price shadow">Khuyến mãi</div>
                         </div>
                         <div class="courses-content">
-                            <div class="course-author d-flex align-items-center">
+                            <div class="course-author d-flex align-items-center justify-content-between">
                                 <img src="https://angular.envytheme.com/odemy-ng/assets/img/user3.jpg" class="rounded-circle" alt="image">
-                                <span>Alex Morgan</span>
+                                <span class="span-content-course">{{item.userName}}</span>
+                                <a href="javascript:void(0)" (click)="bookMarkCourse(item.id)">
+                                    <ng-icon *ngIf="!item.isBookMark" size="24" name="bootstrapBookmark"></ng-icon>
+                                    <ng-icon *ngIf="item.isBookMark" size="24" name="bootstrapBookmarkCheckFill"></ng-icon>
+                                </a>
                             </div>
                             <h3><a routerLink="/chi-tiet-khoa-hoc/{{item.id}}">{{item.title}}</a>
                             </h3>

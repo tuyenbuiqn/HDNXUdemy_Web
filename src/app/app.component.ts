@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, NavigationCancel, NavigationEnd } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { filter } from 'rxjs/operators';
@@ -14,7 +14,7 @@ declare let $: any;
             provide: LocationStrategy,
             useClass: PathLocationStrategy
         }
-    ]
+    ],
 })
 export class AppComponent {
     location: any;
@@ -22,23 +22,23 @@ export class AppComponent {
 
     constructor(
         private router: Router,
-        private readonly hubNotificationService : NotificationHubService) {
+        private readonly hubNotificationService: NotificationHubService) {
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.recallJsFuntions();
         this.hubNotificationService.startConnection();
     }
 
     recallJsFuntions() {
         this.routerSubscription = this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
-        .subscribe(event => {
-            this.location = this.router.url;
-            if (!(event instanceof NavigationEnd)) {
-                return;
-            }
-            window.scrollTo(0, 0);
-        });
+            .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
+            .subscribe(event => {
+                this.location = this.router.url;
+                if (!(event instanceof NavigationEnd)) {
+                    return;
+                }
+                window.scrollTo(0, 0);
+            });
     }
 }

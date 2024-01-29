@@ -19,12 +19,12 @@ export class CartServices {
             course.totalOrder = course.isDiscount == true ? course.priceOfDiscount : course.priceOfCourse;
             this.courseItems.push(course)
         }
-        this.cartUpdates.next();
+        this.cartUpdates.next("");
 
     }
 
     removeCourse(course: GetCourseWithDetailsContent) {
         this.courseItems = this.courseItems.filter(item => item.id != course.id);
-        this.cartUpdates.next();
+        this.cartUpdates.next("");
     }
 }
