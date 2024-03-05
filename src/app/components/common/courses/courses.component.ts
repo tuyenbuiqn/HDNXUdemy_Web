@@ -70,7 +70,7 @@ export class CoursesComponent implements OnInit {
             });
 
         } else {
-            this.messengerServices.warringBookMarkCourse();
+            this.messengerServices.warringBookMarkCourse('Vui lòng đăng nhập để lưu khoá học!');
         }
     }
 

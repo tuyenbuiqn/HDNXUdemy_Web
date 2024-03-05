@@ -11,7 +11,14 @@
     <div class="shape9"><img src="assets/img/shape8.svg" alt="image" /></div>
 </div>
 
+<div class="header-cart-payment" *ngIf="!isMemberAccount">
+    <div class="user-actions">
+        <i class="bx bx-log-in"></i>
+        <span>Bạn chưa đăng nhập? <a routerLink="/dang-nhap">Click để đăng nhập</a> <a routerLink="/dang-ki">/ đăng ký đê tiếp tục</a></span>
+    </div>
+</div>
 <div class="container pt-5 pb-5">
+
     <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
         <div class="cart-table table-responsive">
             <table class="table table-bordered">
@@ -63,7 +70,7 @@
             <h3>Tổng đơn hàng</h3>
             <ul>
                 <li>Tổng đơn hàng <span>{{totalValue | currency: 'VND':'symbol':'1.0-0'}}</span></li>
-                <li>Giảm giá <span>$30.00</span></li>
+                <li>Giảm giá <span></span></li>
                 <li>Tổng cộng <span>{{totalValue | currency: 'VND':'symbol':'1.0-0'}}</span></li>
             </ul>
 
@@ -71,7 +78,7 @@
                 <input type="text" class="form-control" placeholder="Nhập giảm giá" name="coupon-code" id="coupon-code" />
                 <button type="submit">Nhập giảm giá</button>
             </div>
-            <a routerLink="/thanh-toan" class="default-btn with-btn-login"><i class="flaticon-shopping-cart"></i>Tiếp tục thanh toán<span></span></a>
+            <a href="javascript:void(0)" class="default-btn with-btn-login" (click)="goToPaymentForCourse()"><i class="flaticon-shopping-cart"></i>Tiếp tục thanh toán<span></span></a>
         </div>
     </div>
 </div>

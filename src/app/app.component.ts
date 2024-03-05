@@ -3,6 +3,7 @@ import { Router, NavigationCancel, NavigationEnd } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { NotificationHubService } from './core/services/hub-notification.service';
+import { AuthenticationServices } from './core/services/authentication.service';
 declare let $: any;
 
 @Component({
@@ -22,7 +23,7 @@ export class AppComponent {
 
     constructor(
         private router: Router,
-        private readonly hubNotificationService: NotificationHubService) {
+        private readonly hubNotificationService: NotificationHubService,) {
     }
 
     ngOnInit() {

@@ -12,14 +12,15 @@
     "ListFileTypeUpload": "master-data/list-file-type-upload",
     "UpdateInformationConfigSystem": "master-data/config-system/{0}",
     "GetListConfigSystem": "master-data/config-system",
-    "GetListOfFileTypeUpload": "master-data/list-of-file-type-upload"
+    "GetListOfFileTypeUpload": "master-data/list-of-file-type-upload",
+    "GetListInformationManualBanking": "master-data/banking-information"
   },
   "Course": {
     "CreateCourse": "master-course/course",
     "UpdateStatusCourse": "master-course/course/status/{0}",
     "UpdateInformationCourse": "master-course/course/{0}",
     "GetListAllCourse": "master-course/course",
-    "GetCourses": "master-course/course/{0}",
+    "GetCourses": "master-course/course/{0}/{1}",
     "CreateContentCourse": "master-course/course-content",
     "UpdateStatusContentCourse": "master-course/course-content/status/{0}",
     "UpdateInformationContentCourse": "master-course/course-content/{0}",
@@ -59,7 +60,8 @@
     "UpdateStatusBookmarkCourse": "student/bookmark-course/status/{0}",
     "GetListBookmarkCourse": "student/bookmark-course/{0}",
     "RemoveBookmarkCourse": "student/bookmark-course/{0}",
-    "GetListUserManager": "student/account-user"
+    "GetListUserManager": "student/account-user",
+    "GetCoursesOfStudent": "student/student-course/{0}"
   },
   "Home": {
     "GetDataForHome": "home"
@@ -69,5 +71,10 @@
     "LoginNormalAccount": "authentication/login/{0}/{1}",
     "LoginWithGoogle": "authentication/login-google",
     "LoginWithFaceBook": "authentication/login-facebook"
+  },
+  "PurchaseOrder" : {
+    "GenPurchaseOrder" : "purchase-course/gen-purchase-code/{0}",
+    "CreateRequestPurchase" : "purchase-course/create-purchase",
+    "UpdateStatusPurchase" : "purchase-course/purchase-course/{0}"
   }
 }

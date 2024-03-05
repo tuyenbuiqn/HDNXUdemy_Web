@@ -13,8 +13,39 @@
     }
 }
 
+.user-actions {
+    box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
+    background: var(--whiteColor);
+    padding: 15px 20px;
+    border-top: 3px solid var(--mainColor);
+    position: relative;
+    margin-bottom: 40px;
+
+    i {
+        color: var(--mainColor);
+        margin-right: 2px;
+        font-size: 20px;
+        position: relative;
+        top: 3px;
+    }
+    span {
+        display: inline-block;
+        font-weight: 700;
+        color: var(--mainColor);
+
+        a {
+            display: inline-block;
+        }
+    }
+}
+
 .container-title {
     max-width: 95%;
+}
+
+.header-cart-payment {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .container {

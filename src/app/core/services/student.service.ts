@@ -6,6 +6,7 @@ import { map } from "rxjs/operators";
 import { RepositoryModel } from "src/app/models/models/repository_base";
 import { BookMarkCourse } from "src/app/models/models/book-mark";
 import { Course } from "src/app/models/models/course";
+import { LocalStorageConfig } from "src/app/library/clientconfig/localstorageconfig";
 
 @Injectable({ providedIn: 'root' })
 export class StudentServices {
@@ -53,13 +54,21 @@ export class StudentServices {
         return this.transferHttp.put(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
     }
 
-    getListBookmarkCourse(idUser: number) {
-        const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'GetListBookmarkCourse', idUser);
+    getListBookmarkCourse() {
+        let getValueOfUser = LocalStorageConfig.GetUser();
+        const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'GetListBookmarkCourse', getValueOfUser.userId);
         return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<Course[]>) => res));
     }
 
     removeBookmarkCourse(id: number) {
         const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'RemoveBookmarkCourse', id);
         return this.transferHttp.delete(ApiUrl).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    getDataCourseOfStudent() {
+        let getValueOfUser = LocalStorageConfig.GetUser();
+        const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'GetCoursesOfStudent', getValueOfUser.userId);
+        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<Course[]>) => res));
+
     }
 }

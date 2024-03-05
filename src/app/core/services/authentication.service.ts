@@ -6,6 +6,7 @@ import { RepositoryModel } from "src/app/models/models/repository_base";
 import { LoginRegister } from "src/app/models/respone_model/login-register-respone";
 import { SocialUser } from "@abacritt/angularx-social-login";
 import { BehaviorSubject, Observable } from "rxjs";
+import { LocalStorageConfig } from "src/app/library/clientconfig/localstorageconfig";
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationServices {
@@ -40,5 +41,10 @@ export class AuthenticationServices {
 
     getDataUploadAfterLogin(): Observable<LoginRegister> {
         return this.loginDataUpdate$.asObservable();
+    }
+
+    isCheckMemberAccount(): boolean {
+        let dataGetValueUser = LocalStorageConfig.GetUser();
+        return dataGetValueUser != null;
     }
 }

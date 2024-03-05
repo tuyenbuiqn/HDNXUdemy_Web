@@ -74,6 +74,7 @@ import { NotificationUsersComponent } from './components/pages/notification-user
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgIconsModule } from '@ng-icons/core';
 import { bootstrapBookmark, bootstrapBookmarkCheckFill } from '@ng-icons/bootstrap-icons';
+import { AccountBookmarkCourseComponent } from './components/pages/account-bookmark-course/account-bookmark-course.component';
 
 @NgModule({
   declarations: [
@@ -130,7 +131,8 @@ import { bootstrapBookmark, bootstrapBookmarkCheckFill } from '@ng-icons/bootstr
     HdnxLoadingComponent,
     RegisterErrorComponent,
     SendEmailAfterRegisterComponent,
-    NotificationUsersComponent
+    NotificationUsersComponent,
+    AccountBookmarkCourseComponent
   ],
   imports: [
     BrowserModule,

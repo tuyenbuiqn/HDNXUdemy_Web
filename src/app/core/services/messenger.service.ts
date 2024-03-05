@@ -57,15 +57,27 @@ export class MessengerServices {
     })
   }
 
-  warringBookMarkCourse() {
+  warringBookMarkCourse(messenger: string) {
     Swal.fire({
       title: 'Cảnh báo',
-      text: 'Vui lòng đăng nhập hoặc đăng ký để sử dụng chức năng lưu khoá học',
+      text: messenger,
       icon: 'info',
       confirmButtonColor: '#4b93ff',
       confirmButtonText: 'OK',
       showCancelButton: false,
     })
+  }
+
+  confirmCreateOrder(messenger: string) {
+    Swal.fire({
+      title: 'Thông báo thanh toán',
+      text: messenger,
+      icon: 'info',
+      confirmButtonColor: 'rgb(3, 142, 220)',
+      cancelButtonColor: 'rgb(243, 78, 78)',
+      confirmButtonText: 'Đóng',
+      showCancelButton: true,
+    });
   }
 
   confirm() {

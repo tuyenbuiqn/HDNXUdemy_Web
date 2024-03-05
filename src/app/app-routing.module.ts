@@ -5,7 +5,6 @@ import { ContactUsComponent } from './components/pages/contact-us/contact-us.com
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { TeacherComponent } from './components/pages/teacher/teacher.component';
-import { ErrorComponent } from './components/pages/error/error.component';
 import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.component';
 import { PurchaseGuideComponent } from './components/pages/purchase-guide/purchase-guide.component';
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
@@ -54,7 +53,7 @@ const routes: Routes = [
     { path: 'tai-tai-lieu', component: DownLoadRecoursesComponent },
     { path: 'san-pham', component: ProductsListComponent },
     { path: 'gio-hang', component: CartComponent },
-    { path: 'thanh-toan', component: CheckoutComponent },
+    { path: 'thanh-toan/:purchaseCode', component: CheckoutComponent },
     { path: 'chi-tiet-san-pham', component: ProductsDetailsComponent },
     { path: 'gallery', component: GalleryComponent },
     { path: 'tin-tuc', component: CoursesNewsComponent },

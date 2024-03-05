@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseServices } from 'src/app/core/services/course.service';
 import { StudentServices } from 'src/app/core/services/student.service';
-import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
 import { Course } from 'src/app/models/models/course';
 
 @Component({
@@ -23,8 +22,7 @@ export class AccountBookmarkCourseComponent implements OnInit {
 
 
   loadListBookmarkCourseOfUser() {
-    const userValue = LocalStorageConfig.GetUser();
-    this.studentServices.getListBookmarkCourse(userValue.userId).subscribe((res) => {
+    this.studentServices.getListBookmarkCourse().subscribe((res) => {
       if (res.retCode === 0 && res.systemMessage === '') {
         this.course = res.data;
       } else {

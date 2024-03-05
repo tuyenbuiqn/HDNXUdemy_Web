@@ -6,6 +6,7 @@ import { CourseServices } from 'src/app/core/services/course.service';
 import { GetCourseWithDetailsContent } from 'src/app/models/respone_model/course-content-with-detail';
 import { LightGallery } from 'lightgallery/lightgallery';
 import { CartServices } from 'src/app/core/services/cart.service';
+import { AuthenticationServices } from 'src/app/core/services/authentication.service';
 
 @Component({
     selector: 'app-courses-details',
@@ -18,6 +19,7 @@ export class CoursesDetailsComponent implements OnInit {
         private readonly router: ActivatedRoute,
         private readonly courseServices: CourseServices,
         private readonly cartServices : CartServices,
+        private readonly authenticationServices : AuthenticationServices,
     ) { }
     idCourse: number = 0;
     courseContentCourse: GetCourseWithDetailsContent | null | undefined;
@@ -86,6 +88,10 @@ export class CoursesDetailsComponent implements OnInit {
 
     addCourseToCart(){
         this.cartServices.addCourse(this.courseContentCourse);
+    }
+
+    get isMemberAccount(){
+        return this.authenticationServices.isCheckMemberAccount();
     }
 
 }

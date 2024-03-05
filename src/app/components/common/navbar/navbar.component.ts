@@ -41,6 +41,7 @@ export class NavbarComponent implements OnInit {
         })
         this.getInformationOfUser();
         this.loadDataCategory();
+        this.count = this.cartServices.count;
         this.cartServices.cartUpdates$.subscribe(() => {
             this.count = this.cartServices.count;
         })
@@ -49,6 +50,10 @@ export class NavbarComponent implements OnInit {
     classApplied = false;
     toggleClass() {
         this.classApplied = !this.classApplied;
+    }
+
+    get isMemberAccount(){
+        return this.authenticationServices.isCheckMemberAccount();
     }
 
     userOptionLinkHTML(obj: any): string {
