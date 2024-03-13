@@ -14,4 +14,5 @@ export class CourseContentDetails {
     fileNameVideo: string;
     isFinishConvert :boolean;
     fileUploadUrlStream?: string;
+
 }

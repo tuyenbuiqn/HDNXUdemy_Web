@@ -337,7 +337,7 @@
                                 Trọn đời
                             </div>
                         </li>
-                        <li>
+                        <li [hidden]="!courseContentCourse?.isPurchase">
                             <div class="cart-buttons">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12 col-sm-12 col-md-12">
@@ -352,7 +352,7 @@
                     </ul>
 
                     <div class="btn-box">
-                        <a href="javascript:void(0);" class="default-btn" (click)="addCourseToCart()"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
+                        <a [hidden]="!courseContentCourse?.isPurchase" href="javascript:void(0);" class="default-btn" (click)="addCourseToCart()"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
                         <a [hidden]="!isMemberAccount" routerLink="/chi-tiet-khoa-hoc" class="default-btn"><i class="flaticon-shopping-cart"></i>Truy cập khoá học<span></span></a>
                     </div>
 

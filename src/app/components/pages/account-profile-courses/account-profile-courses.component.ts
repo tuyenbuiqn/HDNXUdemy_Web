@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentServices } from 'src/app/core/services/student.service';
+import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
 import { Course } from 'src/app/models/models/course';
+import { LoginRegister } from 'src/app/models/respone_model/login-register-respone';
 
 @Component({
   selector: 'app-account-profile-courses',
@@ -11,12 +13,14 @@ export class AccountProfileCoursesComponent implements OnInit {
 
   value: string = '100%';
   courses: Course[] = [];
+  user: LoginRegister;
   constructor(
     private readonly studentServices: StudentServices,
   ) { }
 
   ngOnInit() { 
     this.getDataCourseStudent();
+    this.getInfomationOfUser();
   }
 
   getDataCourseStudent() {
@@ -25,6 +29,10 @@ export class AccountProfileCoursesComponent implements OnInit {
         this.courses = res.data;
       }
     });
+  }
+
+  getInfomationOfUser() {
+    this.user = LocalStorageConfig.GetUser();
   }
 
 }

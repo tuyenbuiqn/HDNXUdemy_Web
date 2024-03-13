@@ -85,4 +85,9 @@ export class NavbarComponent implements OnInit {
         this.userStudent = LocalStorageConfig.GetUser();
     }
 
+    logoutAccount(){
+        this.authenticationServices.logoutWithAccount();
+        this.router.navigate([`/dang-nhap`]);
+    }
+
 }

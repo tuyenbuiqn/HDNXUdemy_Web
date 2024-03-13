@@ -8,7 +8,7 @@ export class LocalStorageConfig {
   private static listCourseId = 'listCourse';
 
   public static RemoveUser(key: string) {
-    localStorage.removeItem(key);
+    localStorage.removeItem(this.currentUserKey);
   }
 
   public static SetUser(pJSONStringify: LoginRegister) {

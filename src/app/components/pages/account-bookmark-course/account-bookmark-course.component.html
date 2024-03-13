@@ -24,20 +24,20 @@
           <div class="col-xl-3 col-lg-4 col-md-12">
               <div class="author-profile-sidebar">
                   <div class="author-user">
-                      <img src="https://angular.hibootstrap.com/futo/assets/images/author/author6.jpg" alt="author" />
+                      <img src="{{user.pictureUrl}}" alt="author" />
                       <i class="bx bx-check-shield"></i>
                   </div>
-                  <h3>Olivia Jenar</h3>
-                  <span>@Jenar</span>
-                  <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-                  <div class="sp-title">0x76669f...a0e9ca52 <i class="ri-folders-line"></i></div>
+                  <h3>{{user.name}}</h3>
+                  <span>{{user.email}}</span>
+                  <p>{{user.phone}}</p>
+                  <div class="sp-title">HDNX {{user.userId}} <i class="ri-folders-line"></i></div>
                   <div class="author-content">
                       <div class="content-left">
-                          <span>Followers</span>
+                          <span>Theo dõi</span>
                           <h3>2941</h3>
                       </div>
                       <div class="content-right">
-                          <button type="submit">Follow</button>
+                          <button type="submit">Theo dõi</button>
                       </div>
                   </div>
                   <ul class="social-link">
@@ -69,7 +69,7 @@
                   <div class="col-xl-4 col-lg-4 col-md-6" *ngFor="let item of course">
                       <div class="single-courses-box">
                           <div class="courses-image">
-                              <a routerLink="/chi-tiet-khoa-hoc" class="d-block image">
+                              <a routerLink="/chi-tiet-khoa-hoc/{{item.id}}" class="d-block image">
                                   <img
                                       src="{{item.pictureUrl}}"
                                       alt="image"
@@ -87,7 +87,7 @@
                                   <span>{{item.userName}}</span>
                               </div>
                               <h3>
-                                  <a routerLink="/chi-tiet-khoa-hoc"
+                                  <a routerLink="/chi-tiet-khoa-hoc/{{item.id}}"
                                       >{{item.title}}</a
                                   >
                               </h3>

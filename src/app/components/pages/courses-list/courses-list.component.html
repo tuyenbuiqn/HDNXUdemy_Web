@@ -35,7 +35,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let item of listCourses">
                     <div class="single-courses-box">
                         <div class="courses-image">
-                            <a routerLink="/chi-tiet-khoa-hoc" class="d-block image">
+                            <a routerLink="/chi-tiet-khoa-hoc/{{item.id}}" class="d-block image">
                                 <img src="{{item.pictureUrl}}" alt="image" />
                             </a>
                             <a routerLink="/" class="fav"><i class="flaticon-heart"></i></a>
@@ -47,7 +47,7 @@
                                 <span>Alex Morgan</span>
                             </div>
                             <h3>
-                                <a routerLink="/chi-tiet-khoa-hoc">{{item.title}}</a>
+                                <a routerLink="/chi-tiet-khoa-hoc/{{item.id}}">{{item.title}}</a>
                             </h3>
                             <p class="truncated-content">
                                 {{item.shortDescription}}

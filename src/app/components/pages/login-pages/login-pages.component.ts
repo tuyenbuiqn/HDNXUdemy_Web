@@ -43,7 +43,9 @@ export class LoginPagesComponent implements OnInit {
         LocalStorageConfig.SetUser(res.data);
         this.authenticationService.updateAfterLogin(res.data);
         this.router.navigate([`/`]);
+        this.isLoading = false;
       } else {
+        this.isLoading = false;
         this.messengerServices.errorWithIssue();
       }
     });
@@ -77,8 +79,9 @@ export class LoginPagesComponent implements OnInit {
         this.authenticationService.updateAfterLogin(res.data);
         this.router.navigate([`/`]);
       } else {
-        this.isLoading = false;
+        
         this.messengerServices.errorWithIssue();
+        this.isLoading = false;
       }
     })
   }

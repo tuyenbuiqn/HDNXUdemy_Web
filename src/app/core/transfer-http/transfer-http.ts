@@ -107,8 +107,8 @@ export class TransferHttp {
       // this.router.navigate(['/error']);
       Swal.fire({
         title: 'Có lỗi xảy ra?',
-        text: `${error.message}- thông số truyền vào có vẻ không đúng`,
-        icon: 'question',
+        text: `${error.message}- thông số truyền vào có vẻ không đúng, vui lòng load lại trang và đăng nhập lại`,
+        icon: 'error',
         iconColor: '#1ea6d3',
         confirmButtonColor: '#4b93ff',
         showCancelButton: true,

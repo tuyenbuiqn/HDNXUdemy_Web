@@ -11,6 +11,7 @@ export class GetCourseWithDetailsContent extends Course {
     listContentCourseDetails : CourseContentWithDetails[];
     listCourseRate: Course[];
     author : StudentUser;
+    isPurchase? : boolean;
 }
 
 

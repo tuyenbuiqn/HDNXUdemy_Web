@@ -24,13 +24,13 @@
             <div class="col-xl-3 col-lg-4 col-md-12">
                 <div class="author-profile-sidebar">
                     <div class="author-user">
-                        <img src="https://angular.hibootstrap.com/futo/assets/images/author/author6.jpg" alt="author" />
+                        <img src="{{user.pictureUrl}}" alt="author" />
                         <i class="bx bx-check-shield"></i>
                     </div>
-                    <h3>Olivia Jenar</h3>
-                    <span>@Jenar</span>
-                    <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary</p>
-                    <div class="sp-title">0x76669f...a0e9ca52 <i class="ri-folders-line"></i></div>
+                    <h3>{{user.name}}</h3>
+                    <span>{{user.email}}</span>
+                    <p>{{user.phone}}</p>
+                    <div class="sp-title">HDNX {{user.userId}} <i class="ri-folders-line"></i></div>
                     <div class="author-content">
                         <div class="content-left">
                             <span>Followers</span>
@@ -69,7 +69,7 @@
                     <div *ngFor="let item of courses" class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-courses-box">
                             <div class="courses-image">
-                                <a routerLink="/chi-tiet-khoa-hoc" class="d-block image">
+                                <a routerLink="//{{item.id}}" class="d-block image">
                                     <img src="{{item.pictureUrl}}" alt="image" />
                                 </a>
                                 <a routerLink="/" class="fav"><i class="flaticon-heart"></i></a>
@@ -80,7 +80,7 @@
                                     <span>Alex Morgan</span>
                                 </div>
                                 <h3>
-                                    <a routerLink="/chi-tiet-khoa-hoc">{{item.title}}</a>
+                                    <a routerLink="/chi-tiet-khoa-hoc/{{item.id}}">{{item.title}}</a>
                                 </h3>
                                 <p>
                                     {{item.shortDescription}}

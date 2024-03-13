@@ -47,4 +47,9 @@ export class AuthenticationServices {
         let dataGetValueUser = LocalStorageConfig.GetUser();
         return dataGetValueUser != null;
     }
+
+    logoutWithAccount(){
+        let valueCurrentUser = 'currentUser';
+        LocalStorageConfig.RemoveUser(valueCurrentUser);
+    }
 }

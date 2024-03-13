@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseServices } from 'src/app/core/services/course.service';
 import { StudentServices } from 'src/app/core/services/student.service';
+import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
 import { Course } from 'src/app/models/models/course';
+import { LoginRegister } from 'src/app/models/respone_model/login-register-respone';
 
 @Component({
   selector: 'app-account-bookmark-course',
@@ -11,6 +13,7 @@ import { Course } from 'src/app/models/models/course';
 export class AccountBookmarkCourseComponent implements OnInit {
   value: string = '100%';
   course: Course[] = [];
+  user: LoginRegister;
   constructor(
     private readonly studentServices: StudentServices,
   ) { }
@@ -18,8 +21,8 @@ export class AccountBookmarkCourseComponent implements OnInit {
   ngOnInit() {
 
     this.loadListBookmarkCourseOfUser();
+    this.getInfomationOfUser();
   }
-
 
   loadListBookmarkCourseOfUser() {
     this.studentServices.getListBookmarkCourse().subscribe((res) => {
@@ -29,5 +32,9 @@ export class AccountBookmarkCourseComponent implements OnInit {
         this.course = [];
       }
     })
+  }
+
+  getInfomationOfUser() {
+    this.user = LocalStorageConfig.GetUser();
   }
 }
