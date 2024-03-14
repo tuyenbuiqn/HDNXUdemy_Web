@@ -27,4 +27,10 @@ export class Course {
     processCourse: number;
     fileUploadUrlStream?: string;
     isBookMark ?: boolean;
+    isPurchase ?: boolean;
+    vote1Star?: number;
+    vote2Star? : number;
+    vote3Star: number;
+    vote4Star: number;
+    vote5Star?: number;
 }

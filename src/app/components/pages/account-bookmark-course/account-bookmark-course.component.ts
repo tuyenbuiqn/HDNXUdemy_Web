@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartServices } from 'src/app/core/services/cart.service';
 import { CourseServices } from 'src/app/core/services/course.service';
 import { StudentServices } from 'src/app/core/services/student.service';
 import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
@@ -16,6 +17,8 @@ export class AccountBookmarkCourseComponent implements OnInit {
   user: LoginRegister;
   constructor(
     private readonly studentServices: StudentServices,
+    private readonly cartServices: CartServices,
+    private readonly courseServices: CourseServices,
   ) { }
 
   ngOnInit() {
@@ -37,4 +40,12 @@ export class AccountBookmarkCourseComponent implements OnInit {
   getInfomationOfUser() {
     this.user = LocalStorageConfig.GetUser();
   }
+
+  addCourseToCart(idCourse : number){
+    this.courseServices.getCourses(idCourse).subscribe((res) => {
+      if (res.retCode === 0 && res.systemMessage === '') {
+        this.cartServices.addCourse(res.data);
+      } 
+  });
+}
 }

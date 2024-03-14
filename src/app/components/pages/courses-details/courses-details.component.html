@@ -352,8 +352,8 @@
                     </ul>
 
                     <div class="btn-box">
-                        <a [hidden]="!courseContentCourse?.isPurchase" href="javascript:void(0);" class="default-btn" (click)="addCourseToCart()"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
-                        <a [hidden]="!isMemberAccount" routerLink="/chi-tiet-khoa-hoc" class="default-btn"><i class="flaticon-shopping-cart"></i>Truy cập khoá học<span></span></a>
+                        <a [hidden]="courseContentCourse?.isPurchase" href="javascript:void(0);" class="default-btn" (click)="addCourseToCart()"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
+                        <a [hidden]="!courseContentCourse?.isPurchase" routerLink="/chi-tiet-noi-dung-khoa-hoc/{{courseContentCourse?.id}}" class="default-btn"><i class="flaticon-shopping-cart"></i>Truy cập khoá học<span></span></a>
                     </div>
 
                     <div class="courses-share">

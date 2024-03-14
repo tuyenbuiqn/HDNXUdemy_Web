@@ -158,6 +158,15 @@
     margin: 20px;
 }
 
+.list-group-content {
+    &.active {
+        z-index: 2;
+        color: #fff;
+        background-color: #3762ea;
+        border-color: #3762ea;
+    }
+}
+
 .video-player {
     flex: 70%;
     padding-right: 10px;

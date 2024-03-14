@@ -9,8 +9,10 @@ import Artplayer from 'artplayer';
 import { type Option } from 'artplayer/types/option';
 import Hls from 'hls.js';
 import { CourseServices } from 'src/app/core/services/course.service';
-import { CourseContentDetails } from 'src/app/models/models/course-content';
 import { MessengerServices } from 'src/app/core/services/messenger.service';
+import { ActivatedRoute } from '@angular/router';
+import { GetCourseWithDetailsContent } from 'src/app/models/respone_model/course-content-with-detail';
+import { CourseContentDetails } from 'src/app/models/models/course-content';
 
 @Component({
   selector: 'app-courses-content-detail',
@@ -23,7 +25,6 @@ export class CoursesContentDetailComponent implements OnInit {
   private modalService = inject(NgbModal);
   isDisplayReplay = false;
   isComment = false;
-  panels = ['Cài đắt hệ thống', 'Thiết lập máy tính', 'Cài đặt thông tinh','Cài đắt hệ thống', 'Thiết lập máy tính', 'Cài đặt thông tinh'];
   @ViewChild('artplayer') artplayerElement: ElementRef;
   player: Artplayer | undefined;
   playerHeight = '100%';
@@ -33,7 +34,7 @@ export class CoursesContentDetailComponent implements OnInit {
     volume: 0.5,
     isLive: false,
     muted: false,
-    autoplay: false,
+    autoplay: true,
     pip: true,
     autoMini: true,
     setting: true,
@@ -71,14 +72,21 @@ export class CoursesContentDetailComponent implements OnInit {
       }
     },
   }
+  idCourse = 0;
+  contentCourseDetail: GetCourseWithDetailsContent | null | undefined;
+  videoOfContent: CourseContentDetails;
+  activeItemIndex : number | null = null;
 
-  contentCourseDetail: CourseContentDetails;
 
-  private readonly courseServices : CourseServices;
-  private readonly messengerService : MessengerServices;
-  constructor() { }
+  constructor(
+    private readonly courseServices: CourseServices,
+    private readonly messengerService: MessengerServices,
+    private readonly router: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.idCourse = Number(this.router.snapshot.paramMap.get('id'));
+    this.loadDataForCourse(this.idCourse);
   }
 
   ngAfterViewInit(): void {
@@ -114,25 +122,25 @@ export class CoursesContentDetailComponent implements OnInit {
   }
 
   openModalCommentUser() {
-    const modalRef = this.modalService.open(UserCommentCoursesComponent, {size: 'xl'});
+    const modalRef = this.modalService.open(UserCommentCoursesComponent, { size: 'xl' });
     modalRef.componentInstance.name = 'World';
   }
 
   openModalReviewCourses() {
-    const modalRef = this.modalService.open(UserReviewCoursesComponent, {size: 'xl'});
+    const modalRef = this.modalService.open(UserReviewCoursesComponent, { size: 'xl' });
     modalRef.componentInstance.reviewOfUser = 'Khoá học này rất tốt';
   }
 
-  replayComment(){
+  replayComment() {
     this.isDisplayReplay = true;
   }
 
-  getDetailDataOfCourse(){
+  getDetailDataOfCourse() {
 
   }
 
-  getDataOfContentDetails(id: number) {
-    this.courseServices.getContentCourseDetails(id).subscribe((res) => {
+  loadDataForCourse(id: number) {
+    this.courseServices.getCourses(id).subscribe((res) => {
       if (res.retCode == 0 && res.systemMessage == "") {
         this.contentCourseDetail = res.data;
         this.player.url = this.contentCourseDetail.fileUploadUrlStream;
@@ -140,6 +148,21 @@ export class CoursesContentDetailComponent implements OnInit {
         this.messengerService.errorWithIssue();
       }
     });
+  }
+
+  getDataOfContentDetails(id: number) {
+    this.courseServices.getContentCourseDetails(id).subscribe((res) => {
+      if (res.retCode == 0 && res.systemMessage == "") {
+        this.videoOfContent = res.data;
+        this.player.url = this.videoOfContent.fileUploadUrlStream;
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    });
+  }
+
+  onClickContentCourse(id : number){
+    this.activeItemIndex = id;
   }
 
 }

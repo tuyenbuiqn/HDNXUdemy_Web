@@ -59,7 +59,7 @@ const routes: Routes = [
     { path: 'tin-tuc', component: CoursesNewsComponent },
     { path: 'chi-tiet-tin-tuc', component: BlogDetailsStyleTwoComponent },
     { path: 'contact', component: ContactUsComponent },
-    { path: 'chi-tiet-noi-dung-khoa-hoc', component: CoursesContentDetailComponent },
+    { path: 'chi-tiet-noi-dung-khoa-hoc/:id', component: CoursesContentDetailComponent },
     { path: 'dang-nhap', component: LoginPagesComponent },
     { path: 'dang-ki', component: RegisterPagesComponent },
     { path: 'khoa-hoc-hoc-vien', component: AccountProfileCoursesComponent },

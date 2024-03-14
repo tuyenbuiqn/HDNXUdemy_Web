@@ -95,7 +95,8 @@
                                 {{item.shortDescription}}
                               </p>
                               <div class="mt-2">
-                                <a href="javascript:void(0);" class="default-btn" style="width: 100%;"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
+                                <a [hidden]="item?.isPurchase" href="javascript:void(0);" class="default-btn" style="width: 100%;" (click)="addCourseToCart(item.id)"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
+                                <a [hidden]="!item?.isPurchase" href="javascript:void(0);" class="default-btn" style="width: 100%;"><i class="flaticon-certification"></i>Truy cập khoá học<span></span></a>
                               </div>
                           </div>
                       </div>

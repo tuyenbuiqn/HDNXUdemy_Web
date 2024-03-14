@@ -26,6 +26,11 @@ export class PurchaseServices {
     getInformationOfBanking() {
         const ApiUrl = LinkSettings.GetResLinkSetting('MasterData', 'GetListInformationManualBanking');
         return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<InformationManualBankingModel>) => res));
+    }
+
+    isCheckPurchaseCourse(idCourse: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('PurchaseOrder', 'IsCheckCoursePurchase', idCourse);
+        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<boolean>) => res));
 
     }
 
