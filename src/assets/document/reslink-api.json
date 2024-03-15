@@ -35,7 +35,16 @@
     "AddCommentOfStudentForCourse": "master-course/course-comment",
     "GetListCourseEvaluation": "master-course/course-comment/course/{0}",
     "LikeForCommentCourse": "master-course/course-comment-like/{0}",
-    "DisLikeForCommentCourse" : "master-course/course-comment-dislike/{0}"
+    "DisLikeForCommentCourse": "master-course/course-comment-dislike/{0}",
+    "CreateTheadQuestionCourse": "master-course/thead-question-course",
+    "UpdateStatusTheadQuestionCourse": "master-course/thead-question-course/status/{0}",
+    "UpdateInformationTheadQuestionCourse": "master-course/thead-question-course/{0}",
+    "GetListTheadQuestionCourse": "master-course/thead-question-course/course/{0}",
+    "GetTheadQuestionCourse": "master-course/thead-question-course/{0}",
+    "CreateDetailsTheadQuestionCourse": "master-course/details-thead-question-course",
+    "UpdateStatusDetailsTheadQuestionCourse": "master-course/details-thead-question-course/status/{0}",
+    "UpdateInformationDetailsTheadQuestionCourse": "master-course/details-thead-question-course/{0}",
+    "GetListDetailsTheadQuestionCourse": "master-course/details-thead-question-course/course/{0}"
   },
   "UploadDataCloud": {
     "DeleteFileOnCloud": "upload-to-cloud/cloudinary/{0}",
@@ -65,7 +74,8 @@
     "GetListBookmarkCourse": "student/bookmark-course/{0}",
     "RemoveBookmarkCourse": "student/bookmark-course/{0}",
     "GetListUserManager": "student/account-user",
-    "GetCoursesOfStudent": "student/student-course/{0}"
+    "GetCoursesOfStudent": "student/student-course/{0}",
+    "GetListUserNameRegisterForCourse": "student/student-name-of-course/{0}"
   },
   "Home": {
     "GetDataForHome": "home"
@@ -76,10 +86,10 @@
     "LoginWithGoogle": "authentication/login-google",
     "LoginWithFaceBook": "authentication/login-facebook"
   },
-  "PurchaseOrder" : {
-    "GenPurchaseOrder" : "purchase-course/gen-purchase-code/{0}",
-    "CreateRequestPurchase" : "purchase-course/create-purchase",
-    "UpdateStatusPurchase" : "purchase-course/purchase-course/{0}",
+  "PurchaseOrder": {
+    "GenPurchaseOrder": "purchase-course/gen-purchase-code/{0}",
+    "CreateRequestPurchase": "purchase-course/create-purchase",
+    "UpdateStatusPurchase": "purchase-course/purchase-course/{0}",
     "IsCheckCoursePurchase": "purchase-course/check-purchase-course/{0}"
   }
 }

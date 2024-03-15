@@ -7,6 +7,8 @@ import { map } from "rxjs/operators";
 import { CourseContent, CourseContentDetails } from "src/app/models/models/course-content";
 import { ContentAndDetails, CourseContentWithDetails, GetCourseWithDetailsContent } from "src/app/models/respone_model/course-content-with-detail";
 import { CourseEvaluation } from "src/app/models/models/course-evaluation";
+import { TheadQuestionCourse } from "src/app/models/models/thead-question-course";
+import { DetailTheadQuestionCourse } from "src/app/models/models/details-thead-question-course";
 
 @Injectable({ providedIn: 'root' })
 export class CourseServices {
@@ -112,5 +114,45 @@ export class CourseServices {
     disLikeForCommentCourse(id: number) {
         const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'DisLikeForCommentCourse', id);
         return this.transferHttp.putUrl(ApiUrl).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    createTheadQuestionCourse(model: TheadQuestionCourse) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'CreateTheadQuestionCourse');
+        return this.transferHttp.post(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    updateStatusTheadQuestionCourse(model: TheadQuestionCourse) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'UpdateStatusTheadQuestionCourse', model.id);
+        return this.transferHttp.put(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    updateInformationTheadQuestionCourse(model: TheadQuestionCourse) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'UpdateInformationTheadQuestionCourse', model.id);
+        return this.transferHttp.put(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    getListTheadQuestionCourse(idCourse: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'GetTheadQuestionCourse', idCourse);
+        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<TheadQuestionCourse[]>) => res));
+    }
+
+    createDetailsTheadQuestionCourse(model: DetailTheadQuestionCourse) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'CreateDetailsTheadQuestionCourse');
+        return this.transferHttp.post(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    UpdateStatusDetailsTheadQuestionCourse(model: DetailTheadQuestionCourse) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'UpdateStatusDetailsTheadQuestionCourse', model.id);
+        return this.transferHttp.put(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    UpdateInformationDetailsTheadQuestionCourse(model: DetailTheadQuestionCourse) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'UpdateInformationDetailsTheadQuestionCourse', model.id);
+        return this.transferHttp.put(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    GetListDetailsTheadQuestionCourse(id: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'GetListDetailsTheadQuestionCourse', id);
+        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<DetailTheadQuestionCourse[]>) => res));
     }
 }

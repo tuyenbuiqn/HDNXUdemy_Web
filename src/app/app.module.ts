@@ -75,6 +75,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgIconsModule } from '@ng-icons/core';
 import { bootstrapBookmark, bootstrapBookmarkCheckFill } from '@ng-icons/bootstrap-icons';
 import { AccountBookmarkCourseComponent } from './components/pages/account-bookmark-course/account-bookmark-course.component';
+import { MentionModule } from 'angular-mentions';
 
 @NgModule({
   declarations: [
@@ -156,6 +157,7 @@ import { AccountBookmarkCourseComponent } from './components/pages/account-bookm
     SocialLoginModule,
     GoogleSigninButtonModule,
     NgIconsModule.withIcons({ bootstrapBookmark, bootstrapBookmarkCheckFill }),
+    MentionModule 
   ],
   providers: [TransferHttp, {
     provide: 'SocialAuthServiceConfig', useValue: {
