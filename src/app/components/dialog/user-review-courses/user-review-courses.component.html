@@ -25,10 +25,11 @@
                 rows="5"
                 placeholder="Đánh giá khoá học"
                 class="form-control"
-            >{{reviewOfUser}}</textarea>
+                [(ngModel)]="reviewOfUser"
+            ></textarea>
         </div>
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="default-btn" (click)="activeModal.close('Close click')">Lưu đánh giá</button>
+    <button type="button" class="default-btn" (click)="saveComment()">Lưu đánh giá</button>
 </div>

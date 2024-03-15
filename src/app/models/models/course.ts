@@ -33,4 +33,5 @@ export class Course {
     vote3Star: number;
     vote4Star: number;
     vote5Star?: number;
+    averageScore: number;
 }

@@ -31,7 +31,9 @@
     "UpdateInformationContentCourseDetails": "master-course/course-content-details/{0}",
     "GetListContentCourseDetails": "master-course/course-content-details/course/{0}",
     "GetContentCourseDetails": "master-course/course-content-details/{0}",
-    "GetListCourseAsCategory": "master-course/course/category/{0}"
+    "GetListCourseAsCategory": "master-course/course/category/{0}",
+    "AddCommentOfStudentForCourse": "master-course/course-comment",
+    "GetListCourseEvaluation": "master-course/course-comment/course/{0}"
   },
   "UploadDataCloud": {
     "DeleteFileOnCloud": "upload-to-cloud/cloudinary/{0}",

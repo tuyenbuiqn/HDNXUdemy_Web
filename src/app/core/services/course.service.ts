@@ -6,6 +6,7 @@ import { RepositoryModel } from "src/app/models/models/repository_base";
 import { map } from "rxjs/operators";
 import { CourseContent, CourseContentDetails } from "src/app/models/models/course-content";
 import { ContentAndDetails, CourseContentWithDetails, GetCourseWithDetailsContent } from "src/app/models/respone_model/course-content-with-detail";
+import { CourseEvaluation } from "src/app/models/models/course-evaluation";
 
 @Injectable({ providedIn: 'root' })
 export class CourseServices {
@@ -91,5 +92,15 @@ export class CourseServices {
     getListCourseAsCategory(idCategory: number) {
         const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'GetListCourseAsCategory', idCategory);
         return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<Course[]>) => res));
+    }
+
+    addCommentOfStudentForCourse(model: CourseEvaluation) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'AddCommentOfStudentForCourse');
+        return this.transferHttp.post(ApiUrl, model).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    getListCourseEvaluation(idCourse: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'GetListCourseEvaluation', idCourse);
+        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<CourseEvaluation[]>) => res));
     }
 }

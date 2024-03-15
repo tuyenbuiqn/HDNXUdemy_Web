@@ -13,6 +13,9 @@ import { MessengerServices } from 'src/app/core/services/messenger.service';
 import { ActivatedRoute } from '@angular/router';
 import { GetCourseWithDetailsContent } from 'src/app/models/respone_model/course-content-with-detail';
 import { CourseContentDetails } from 'src/app/models/models/course-content';
+import { CourseEvaluation } from 'src/app/models/models/course-evaluation';
+import { ConstantValue } from 'src/app/models/contants/ennum_router';
+import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
 
 @Component({
   selector: 'app-courses-content-detail',
@@ -75,8 +78,8 @@ export class CoursesContentDetailComponent implements OnInit {
   idCourse = 0;
   contentCourseDetail: GetCourseWithDetailsContent | null | undefined;
   videoOfContent: CourseContentDetails;
-  activeItemIndex : number | null = null;
-
+  activeItemIndex: number | null = null;
+  commentOfCourse: CourseEvaluation[] = [];
 
   constructor(
     private readonly courseServices: CourseServices,
@@ -87,6 +90,7 @@ export class CoursesContentDetailComponent implements OnInit {
   ngOnInit() {
     this.idCourse = Number(this.router.snapshot.paramMap.get('id'));
     this.loadDataForCourse(this.idCourse);
+    this.getListCommentOfCourse(this.idCourse);
   }
 
   ngAfterViewInit(): void {
@@ -127,8 +131,19 @@ export class CoursesContentDetailComponent implements OnInit {
   }
 
   openModalReviewCourses() {
+    let getValueLocalStor = LocalStorageConfig.GetUser();
     const modalRef = this.modalService.open(UserReviewCoursesComponent, { size: 'xl' });
-    modalRef.componentInstance.reviewOfUser = 'Khoá học này rất tốt';
+    modalRef.componentInstance.reviewOfUser = '';
+    modalRef.componentInstance.idCourse = this.idCourse;
+    modalRef.componentInstance.idStudent = getValueLocalStor.userId;
+    modalRef.closed.subscribe((res) => {
+      if(res == ConstantValue.finishModal){
+        this.getListCommentOfCourse(this.idCourse);
+        this.loadDataForCourse(this.idCourse);
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    })
   }
 
   replayComment() {
@@ -161,8 +176,19 @@ export class CoursesContentDetailComponent implements OnInit {
     });
   }
 
-  onClickContentCourse(id : number){
+  onClickContentCourse(id: number) {
     this.activeItemIndex = id;
+  }
+
+  getListCommentOfCourse(idCourse: number) {
+    this.courseServices.getListCourseEvaluation(idCourse).subscribe((res) => {
+      if (res.retCode == 0 && res.systemMessage == "") {
+        this.commentOfCourse = res.data;
+        this.player.url = this.videoOfContent?.fileUploadUrlStream;
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    });
   }
 
 }

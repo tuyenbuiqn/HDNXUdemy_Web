@@ -141,14 +141,10 @@
                         <div class="courses-reviews">
                             <h3>Đánh giá</h3>
                             <div class="rating">
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star checked"></span>
-                                <span class="bx bxs-star"></span>
+                                <ngx-stars [readonly]="true" [size]="2" [color]="'#ffd000'" [maxStars]="5" [initialStars]="contentCourseDetail?.averageScore"></ngx-stars>
                             </div>
                             <div class="rating-count">
-                                <span>Trung bình 4.1 dựa trên 1000 đánh giá.</span>
+                                <span>Trung bình {{contentCourseDetail?.averageScore}} sao dựa trên {{contentCourseDetail?.totalVoteOfCourse}} đánh giá.</span>
                             </div>
                             <div class="row">
                                 <div class="side">
@@ -211,107 +207,28 @@
                         <div class="courses-review-comments">
                             <div>
                                 <h3>
-                                    3 Đánh giá
+                                    {{contentCourseDetail?.totalVoteOfCourse}} Đánh giá
                                     <a href="javascript:void(0)" (click)="openModalReviewCourses()" *ngIf="isComment; else commented"><i class="bx bxs-conversation font-size-icon"></i></a>
                                 </h3>
                             </div>
 
-                            <div class="user-review">
-                                <img src="assets/img/user1.jpg" alt="image" />
+                            <div class="user-review" *ngFor="let itemComment of commentOfCourse">
+                                <img src="{{itemComment?.users?.pictureUrl}}" alt="image" />
                                 <div class="review-rating">
+                                    <span class="d-inline-block">{{itemComment?.users?.name}}</span>
                                     <div class="review-stars">
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
+                                        <ngx-stars [readonly]="true" [size]="1" [color]="'#ffd000'" [maxStars]="5" [initialStars]="itemComment?.voteStartNumber"></ngx-stars>
                                     </div>
-                                    <span class="d-inline-block">James Anderson</span>
+                                    
                                 </div>
                                 <span class="d-block sub-comment">Excellent</span>
                                 <p>
-                                    Very well built theme, couldn't be happier with it. Can't wait for future updates to
-                                    see what else they add in.
+                                    {{itemComment?.commentEvaluation}}
                                 </p>
                                 <div class="courses-review">
                                     <div class="reactions">
-                                        <button class="btn react"><i class="bx bxs-like"></i>4</button>
-                                        <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
-                                    </div>
-                                    <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
-                                    <span class="is-mute">6 giờ</span>
-                                </div>
-                            </div>
-                            <div class="user-review">
-                                <img src="assets/img/user2.jpg" alt="image" />
-                                <div class="review-rating">
-                                    <div class="review-stars">
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star"></i>
-                                        <i class="bx bxs-star"></i>
-                                    </div>
-                                    <span class="d-inline-block">Sarah Taylor</span>
-                                </div>
-                                <span class="d-block sub-comment">Video Quality!</span>
-                                <p>Was really easy to implement and they quickly answer my additional questions!</p>
-                                <div class="courses-review">
-                                    <div class="reactions">
-                                        <button class="btn react"><i class="bx bxs-like"></i>4</button>
-                                        <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
-                                    </div>
-                                    <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
-                                    <span class="is-mute">6 giờ</span>
-                                </div>
-                            </div>
-                            <div class="user-review">
-                                <img src="assets/img/user3.jpg" alt="image" />
-                                <div class="review-rating">
-                                    <div class="review-stars">
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                    </div>
-                                    <span class="d-inline-block">David Warner</span>
-                                </div>
-                                <span class="d-block sub-comment">Perfect Coding!</span>
-                                <p>
-                                    Stunning design, very dedicated crew who welcome new ideas suggested by customers,
-                                    nice support.
-                                </p>
-                                <div class="courses-review">
-                                    <div class="reactions">
-                                        <button class="btn react"><i class="bx bxs-like"></i>4</button>
-                                        <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
-                                    </div>
-                                    <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
-                                    <span class="is-mute">6 giờ</span>
-                                </div>
-                            </div>
-                            <div class="user-review">
-                                <img src="assets/img/user4.jpg" alt="image" />
-                                <div class="review-rating">
-                                    <div class="review-stars">
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star checked"></i>
-                                        <i class="bx bxs-star"></i>
-                                    </div>
-                                    <span class="d-inline-block">King Kong</span>
-                                </div>
-                                <span class="d-block sub-comment">Perfect Video!</span>
-                                <p>
-                                    Stunning design, very dedicated crew who welcome new ideas suggested by customers,
-                                    nice support.
-                                </p>
-                                <div class="courses-review">
-                                    <div class="reactions">
-                                        <button class="btn react"><i class="bx bxs-like"></i>4</button>
-                                        <button class="btn react"><i class="bx bxs-dislike"></i>1</button>
+                                        <button class="btn react"><i class="bx bxs-like"></i>{{itemComment?.like}}</button>
+                                        <button class="btn react"><i class="bx bxs-dislike"></i>{{itemComment?.disLike}}</button>
                                     </div>
                                     <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
                                     <span class="is-mute">6 giờ</span>
@@ -484,8 +401,9 @@
                         <div ngbAccordionBody>
                             <ng-template>
                                 <ul>
-                                    <li class="list-group-content" ngbTooltip="{{ itemContent?.nameSubContent }}" [class.active]="itemContent.id === activeItemIndex" (click)="onClickContentCourse(itemContent.id)" *ngFor="let itemContent of item?.contentAndContentDetails" (click)="getDataOfContentDetails(itemContent.id)">
-                                        <a href="javascript:void(0)" class="locked popup-youtube d-flex justify-content-between align-items-center" >
+                                    <li class="list-group-content" ngbTooltip="{{ itemContent?.nameSubContent }}" [class.active]="itemContent.id === activeItemIndex" (click)="onClickContentCourse(itemContent.id)" *ngFor="let itemContent of item?.contentAndContentDetails"
+                                        (click)="getDataOfContentDetails(itemContent.id)">
+                                        <a href="javascript:void(0)" class="locked popup-youtube d-flex justify-content-between align-items-center">
                                             <span class="courses-name">{{ itemContent?.nameSubContent }}</span>
                                             <div class="courses-meta">
                                                 <span class="duration">{{ itemContent?.timeOfContent }}</span>
