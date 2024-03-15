@@ -103,4 +103,14 @@ export class CourseServices {
         const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'GetListCourseEvaluation', idCourse);
         return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<CourseEvaluation[]>) => res));
     }
+
+    likeForCommentCourse(id: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'LikeForCommentCourse', id);
+        return this.transferHttp.putUrl(ApiUrl).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
+
+    disLikeForCommentCourse(id: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Course', 'DisLikeForCommentCourse', id);
+        return this.transferHttp.putUrl(ApiUrl).pipe(map((res: RepositoryModel<boolean>) => res));
+    }
 }

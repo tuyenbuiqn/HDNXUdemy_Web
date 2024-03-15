@@ -33,7 +33,9 @@
     "GetContentCourseDetails": "master-course/course-content-details/{0}",
     "GetListCourseAsCategory": "master-course/course/category/{0}",
     "AddCommentOfStudentForCourse": "master-course/course-comment",
-    "GetListCourseEvaluation": "master-course/course-comment/course/{0}"
+    "GetListCourseEvaluation": "master-course/course-comment/course/{0}",
+    "LikeForCommentCourse": "master-course/course-comment-like/{0}",
+    "DisLikeForCommentCourse" : "master-course/course-comment-dislike/{0}"
   },
   "UploadDataCloud": {
     "DeleteFileOnCloud": "upload-to-cloud/cloudinary/{0}",

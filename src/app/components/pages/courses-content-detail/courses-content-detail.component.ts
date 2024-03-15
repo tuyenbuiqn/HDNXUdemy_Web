@@ -191,4 +191,24 @@ export class CoursesContentDetailComponent implements OnInit {
     });
   }
 
+  likeForComment(id: number){
+    this.courseServices.likeForCommentCourse(id).subscribe((res) => {
+      if (res.retCode == 0 && res.systemMessage == "") {
+        this.getListCommentOfCourse(this.idCourse);
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    });
+  }
+
+  disLikeForComment(id : number){
+    this.courseServices.disLikeForCommentCourse(id).subscribe((res) => {
+      if (res.retCode == 0 && res.systemMessage == "") {
+        this.getListCommentOfCourse(this.idCourse);
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    });
+  }
+
 }
