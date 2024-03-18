@@ -8,6 +8,7 @@ export class PurchaseOrder {
     discountAmount?: number;
     purcharseStatus?: string;
     purcharseCode?: string;
+    purchaseDate?: Date;
     listPurchaseCourseDetails?: PurchaseDetailsModel[];
     infoBanking?: InformationManualBankingModel;
 }

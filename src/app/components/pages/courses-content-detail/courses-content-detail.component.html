@@ -227,8 +227,8 @@
                                 </p>
                                 <div class="courses-review">
                                     <div class="reactions">
-                                        <button class="btn react"><i class="bx bxs-like" (click)="likeForComment(itemComment.id)"></i>{{itemComment?.like}}</button>
-                                        <button class="btn react"><i class="bx bxs-dislike" (click)="disLikeForComment(itemComment.id)"></i>{{itemComment?.disLike}}</button>
+                                        <button class="btn react" (click)="likeForComment(itemComment.id)"><i class="bx bxs-like" ></i>{{itemComment?.like}}</button>
+                                        <button class="btn react" (click)="disLikeForComment(itemComment.id)"><i class="bx bxs-dislike" ></i>{{itemComment?.disLike}}</button>
                                     </div>
                                     <a href="javascript:void(0)" (click)="replayComment()">Trả lời</a>
                                     <span class="is-mute">6 giờ</span>
