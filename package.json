@@ -26,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^15.1.2",
     "@ng-icons/bootstrap-icons": "^26.3.0",
     "@ng-icons/core": "^26.3.0",
+    "@stripe/stripe-js": "^3.0.10",
     "angular-mentions": "^1.5.0",
     "animate.css": "^4.1.1",
     "artplayer": "^5.1.1",
