@@ -6,11 +6,11 @@
             <ul>
                 <li>
                     <a routerLink="/">
-                        Trang chủ
+                        Home
                     </a>
                 </li>
                 <li>
-                    Thông báo hệ thống
+                    Notification
                 </li>
             </ul>
             <div class="inner-shape">
@@ -29,17 +29,17 @@
                 <ul class="nav-tabset">
                     <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab1'}">
                         <span (click)="switchTab($event, 'tab1')">
-                            Tất cả thông báo
+                            All Notification
                         </span>
                     </li>
                     <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab2'}">
                         <span (click)="switchTab($event, 'tab2')">
-                            Chưa đọc
+                            Not read
                         </span>
                     </li>
                     <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab3'}">
                         <span (click)="switchTab($event, 'tab3')">
-                            Thanh toán khoá học
+                            Payment for the course
                         </span>
                     </li>
                 </ul>

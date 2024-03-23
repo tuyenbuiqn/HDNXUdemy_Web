@@ -60,17 +60,17 @@
             display: inline-block;
             background-color: var(--mainColor);
             color: var(--whiteColor);
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
+            width: 100px;
+            height: 40px;
+            border-radius: 10%;
             position: absolute;
             right: 20px;
-            bottom: -32.5px;
+            bottom: 10px;
             text-align: center;
-            line-height: 67px;
+            line-height: 40px;
 
             font: {
-                size: 24px;
+                size: 12px;
                 weight: 800;
             }
 
@@ -451,30 +451,25 @@
             display: inline-block;
             background-color: var(--mainColor);
             color: var(--whiteColor);
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
+            width: 100px;
+            height: 40px;
+            border-radius: 10%;
             position: absolute;
-            right: 0;
-            bottom: -32.5px;
-            left: 0;
+            right: 20px;
+            bottom: 10px;
             text-align: center;
-            line-height: 67px;
-            z-index: 2;
+            line-height: 40px;
 
             font: {
-                size: 24px;
+                size: 12px;
                 weight: 800;
             }
 
             ;
 
-            margin: {
-                left: auto;
-                right: auto;
+            &.bg-45a393 {
+                background-color: var(--secondaryColor);
             }
-
-            ;
         }
     }
 

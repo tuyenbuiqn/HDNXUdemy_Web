@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
       
       this.purchaseServices.genPurchaseOrder(getDataOfUser.userId).subscribe((res) => {
         if (res.retCode === 0 && res.systemMessage === '') {
-          this.router.navigate([`/thanh-toan/${res.data}`]);
+          this.router.navigate([`/payment/${res.data}`]);
         }
       })
     }

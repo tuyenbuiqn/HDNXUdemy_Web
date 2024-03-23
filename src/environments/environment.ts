@@ -9,6 +9,7 @@ export const environment = {
   clientIdGoogle : '',
   facebookId : '',
   baseUrlHub: 'https://localhost:44319/',
+  stripePublicKey : 'pk_test_51N6HwWLcCqr269TdVni7gwhS4QTPyR4UilZqxouP3KjAIRuPx66on5f97oraQ9zY3wFrzfuJKgc3s3eLzAaihKtb00K8D1MLh8'
 };
 
 /*

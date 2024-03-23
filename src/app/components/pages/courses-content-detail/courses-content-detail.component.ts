@@ -16,6 +16,8 @@ import { CourseContentDetails } from 'src/app/models/models/course-content';
 import { CourseEvaluation } from 'src/app/models/models/course-evaluation';
 import { ConstantValue } from 'src/app/models/contants/ennum_router';
 import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
+import { TheadQuestionCourse } from 'src/app/models/models/thead-question-course';
+import { StudentServices } from 'src/app/core/services/student.service';
 
 @Component({
   selector: 'app-courses-content-detail',
@@ -80,17 +82,22 @@ export class CoursesContentDetailComponent implements OnInit {
   videoOfContent: CourseContentDetails;
   activeItemIndex: number | null = null;
   commentOfCourse: CourseEvaluation[] = [];
+  theadQuestionOfCourse: TheadQuestionCourse[] = [];
+  listNameRegister: string[] = [];
 
   constructor(
     private readonly courseServices: CourseServices,
     private readonly messengerService: MessengerServices,
     private readonly router: ActivatedRoute,
+    private readonly studentServices: StudentServices,
   ) { }
 
   ngOnInit() {
     this.idCourse = Number(this.router.snapshot.paramMap.get('id'));
     this.loadDataForCourse(this.idCourse);
     this.getListCommentOfCourse(this.idCourse);
+    this.getListTheadQuestionOfCourse(this.idCourse);
+    this.getListUserNameRegisterForCourse(this.idCourse);
   }
 
   ngAfterViewInit(): void {
@@ -137,7 +144,7 @@ export class CoursesContentDetailComponent implements OnInit {
     modalRef.componentInstance.idCourse = this.idCourse;
     modalRef.componentInstance.idStudent = getValueLocalStor.userId;
     modalRef.closed.subscribe((res) => {
-      if(res == ConstantValue.finishModal){
+      if (res == ConstantValue.finishModal) {
         this.getListCommentOfCourse(this.idCourse);
         this.loadDataForCourse(this.idCourse);
       } else {
@@ -185,6 +192,46 @@ export class CoursesContentDetailComponent implements OnInit {
       if (res.retCode == 0 && res.systemMessage == "") {
         this.commentOfCourse = res.data;
         this.player.url = this.videoOfContent?.fileUploadUrlStream;
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    });
+  }
+
+  likeForComment(id: number) {
+    this.courseServices.likeForCommentCourse(id).subscribe((res) => {
+      if (res.retCode == 0 && res.systemMessage == "") {
+        this.getListCommentOfCourse(this.idCourse);
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    });
+  }
+
+  disLikeForComment(id: number) {
+    this.courseServices.disLikeForCommentCourse(id).subscribe((res) => {
+      if (res.retCode == 0 && res.systemMessage == "") {
+        this.getListCommentOfCourse(this.idCourse);
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    });
+  }
+
+  getListTheadQuestionOfCourse(idCourse: number) {
+    this.courseServices.getListTheadQuestionCourse(idCourse).subscribe((res) => {
+      if (res.retCode == 0 && res.systemMessage == "") {
+        this.theadQuestionOfCourse = res.data;
+      } else {
+        this.messengerService.errorWithIssue();
+      }
+    });
+  }
+
+  getListUserNameRegisterForCourse(idCourse: number) {
+    this.studentServices.getListUserNameRegisterForCourse(idCourse).subscribe((res) => {
+      if (res.retCode == 0 && res.systemMessage == "") {
+        this.listNameRegister = res.data;
       } else {
         this.messengerService.errorWithIssue();
       }

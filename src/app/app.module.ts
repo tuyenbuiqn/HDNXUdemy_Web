@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountUpModule } from 'ngx-countup';
@@ -19,7 +19,7 @@ import { SubscribeComponent } from './components/common/subscribe/subscribe.comp
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { TeacherComponent } from './components/pages/teacher/teacher.component';
-import { ErrorComponent } from './components/pages/error/error.component';
+import { PaymentErrorComponent } from './components/pages/payment-error/payment-error.component';
 import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.component';
 import { PurchaseGuideComponent } from './components/pages/purchase-guide/purchase-guide.component';
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
@@ -75,6 +75,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgIconsModule } from '@ng-icons/core';
 import { bootstrapBookmark, bootstrapBookmarkCheckFill } from '@ng-icons/bootstrap-icons';
 import { AccountBookmarkCourseComponent } from './components/pages/account-bookmark-course/account-bookmark-course.component';
+import { MentionModule } from 'angular-mentions';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,7 @@ import { AccountBookmarkCourseComponent } from './components/pages/account-bookm
     GalleryComponent,
     AboutComponent,
     TeacherComponent,
-    ErrorComponent,
+    PaymentErrorComponent,
     ComingSoonComponent,
     PurchaseGuideComponent,
     PrivacyPolicyComponent,
@@ -156,6 +157,7 @@ import { AccountBookmarkCourseComponent } from './components/pages/account-bookm
     SocialLoginModule,
     GoogleSigninButtonModule,
     NgIconsModule.withIcons({ bootstrapBookmark, bootstrapBookmarkCheckFill }),
+    MentionModule
   ],
   providers: [TransferHttp, {
     provide: 'SocialAuthServiceConfig', useValue: {
@@ -175,7 +177,7 @@ import { AccountBookmarkCourseComponent } from './components/pages/account-bookm
         console.log(error);
       }
     } as SocialAuthServiceConfig
-  }],
+  }, {provide: DEFAULT_CURRENCY_CODE, useValue: 'USD'},],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

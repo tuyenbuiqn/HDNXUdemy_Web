@@ -71,4 +71,10 @@ export class StudentServices {
         return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<Course[]>) => res));
 
     }
+
+    getListUserNameRegisterForCourse(idCourse: number) {
+        const ApiUrl = LinkSettings.GetResLinkSetting('Student', 'GetListUserNameRegisterForCourse', idCourse);
+        return this.transferHttp.get(ApiUrl).pipe(map((res: RepositoryModel<string[]>) => res));
+
+    }
 }

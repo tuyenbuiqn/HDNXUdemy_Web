@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartServices } from 'src/app/core/services/cart.service';
 import { MessengerServices } from 'src/app/core/services/messenger.service';
 import { PurchaseServices } from 'src/app/core/services/purchase.service';
+import { StripeServices } from 'src/app/core/services/stripe.service';
 import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
+import { ConstantValue } from 'src/app/models/contants/ennum_router';
 import { InformationManualBankingModel } from 'src/app/models/models/infomation-banking';
 import { PurchaseOrder } from 'src/app/models/models/purchase';
 import { PurchaseDetailsModel } from 'src/app/models/models/purchase-details';
@@ -21,10 +23,13 @@ export class CheckoutComponent implements OnInit {
     private readonly purchaseServices: PurchaseServices,
     private readonly cartServices: CartServices,
     private readonly messengerServices: MessengerServices,
+    private readonly stripeServices: StripeServices,
   ) { }
   purchaseCode: string = '';
   infomationBanking: InformationManualBankingModel;
   totalValue = 0;
+  stripePayment = ConstantValue.paymentStripe;
+  tranferPayment = ConstantValue.paymentTranfer;
   ngOnInit(): void {
     this.purchaseCode = this.router.snapshot.paramMap.get('purchaseCode');
     this.getInfomationBanking();
@@ -53,7 +58,7 @@ export class CheckoutComponent implements OnInit {
     })
   }
 
-  finishPurchaseCourse() {
+  paymentPurchaseCourse(typePayment: string) {
     let getDataOfUser = LocalStorageConfig.GetUser();
     let dataOfCart = this.cartServices.courseItems;
     let dataDetailsOfCourseDetail: PurchaseDetailsModel[] = [];
@@ -62,7 +67,8 @@ export class CheckoutComponent implements OnInit {
         idCourse: item.id,
         priceOfCourse: item.priceOfCourse,
         priceOfDiscount: item.priceOfCourse,
-        idPurchaseOrder: 0
+        idPurchaseOrder: 0,
+
       }
       dataDetailsOfCourseDetail.push(dataDetailItem);
     })
@@ -77,16 +83,21 @@ export class CheckoutComponent implements OnInit {
       infoBanking: this.infomationBanking
     };
 
-    this.purchaseServices.createRequestPurchase(dataInsert).subscribe((res) => {
-      if (res.retCode === 0 && res.systemMessage === '') {
-        this.cartServices.removeAllDataOfCart();
-        this.messengerServices.confirmCreateOrder('Đơn hàng đang trong quá trình thanh toán, nếu thành công sẽ thông báo đến bạn!');
-        this.routers.navigate(['/']);
-      } else {
-        this.messengerServices.errorWithIssue();
-      }
-    });
-
-
+    switch (typePayment) {
+      case this.stripePayment:
+        this.stripeServices.goToCheckOutForStripe(dataInsert);
+        break;
+      case this.tranferPayment:
+        this.purchaseServices.createRequestPurchase(dataInsert).subscribe((res) => {
+          if (res.retCode === 0 && res.systemMessage === '') {
+            this.cartServices.removeAllDataOfCart();
+            this.messengerServices.confirmCreateOrder('Đơn hàng đang trong quá trình thanh toán, nếu thành công sẽ thông báo đến bạn!');
+            this.routers.navigate(['/']);
+          } else {
+            this.messengerServices.errorWithIssue();
+          }
+        });
+        break;
+    }
   }
 }
