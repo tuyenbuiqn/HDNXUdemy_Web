@@ -90,6 +90,7 @@
     "GenPurchaseOrder": "purchase-course/gen-purchase-code/{0}",
     "CreateRequestPurchase": "purchase-course/create-purchase",
     "UpdateStatusPurchase": "purchase-course/purchase-course/{0}",
-    "IsCheckCoursePurchase": "purchase-course/check-purchase-course/{0}"
+    "IsCheckCoursePurchase": "purchase-course/check-purchase-course/{0}",
+    "StripeCreateCheckoutSession": "purchase-course/create-stripe-checkout-session"
   }
 }

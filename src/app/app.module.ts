@@ -19,7 +19,7 @@ import { SubscribeComponent } from './components/common/subscribe/subscribe.comp
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { TeacherComponent } from './components/pages/teacher/teacher.component';
-import { ErrorComponent } from './components/pages/error/error.component';
+import { PaymentErrorComponent } from './components/pages/payment-error/payment-error.component';
 import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.component';
 import { PurchaseGuideComponent } from './components/pages/purchase-guide/purchase-guide.component';
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
@@ -90,7 +90,7 @@ import { MentionModule } from 'angular-mentions';
     GalleryComponent,
     AboutComponent,
     TeacherComponent,
-    ErrorComponent,
+    PaymentErrorComponent,
     ComingSoonComponent,
     PurchaseGuideComponent,
     PrivacyPolicyComponent,
@@ -157,7 +157,7 @@ import { MentionModule } from 'angular-mentions';
     SocialLoginModule,
     GoogleSigninButtonModule,
     NgIconsModule.withIcons({ bootstrapBookmark, bootstrapBookmarkCheckFill }),
-    MentionModule 
+    MentionModule
   ],
   providers: [TransferHttp, {
     provide: 'SocialAuthServiceConfig', useValue: {

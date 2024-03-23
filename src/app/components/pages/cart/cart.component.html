@@ -14,7 +14,7 @@
 <div class="header-cart-payment" *ngIf="!isMemberAccount">
     <div class="user-actions">
         <i class="bx bx-log-in"></i>
-        <span>Bạn chưa đăng nhập? <a routerLink="/dang-nhap">Click để đăng nhập</a> <a routerLink="/dang-ki">/ đăng ký đê tiếp tục</a></span>
+        <span>Bạn chưa đăng nhập? <a routerLink="/login">Click để đăng nhập</a> <a routerLink="/register">/ đăng ký đê tiếp tục</a></span>
     </div>
 </div>
 <div class="container pt-5 pb-5">
@@ -32,13 +32,13 @@
                 <tbody>
                     <tr *ngFor="let item of cartServices?.courseItems">
                         <td class="product-thumbnail">
-                            <a routerLink="/chi-tiet-san-pham">
+                            <a routerLink="/details-products">
                                 <img src="{{ item?.pictureUrl }}" alt="item" />
                             </a>
                         </td>
                         <td class="product-name">
-                            <a routerLink="/chi-tiet-san-pham">{{ item?.title }}</a><br />
-                            <a routerLink="/chi-tiet-san-pham">{{ item?.author?.name }}</a><br />
+                            <a routerLink="/details-products">{{ item?.title }}</a><br />
+                            <a routerLink="/details-products">{{ item?.author?.name }}</a><br />
                             <div class="rating">
                                 <span>4.0</span>&nbsp;
                                 <span class="bx bxs-star checked"></span>

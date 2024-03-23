@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartServices } from 'src/app/core/services/cart.service';
 import { MessengerServices } from 'src/app/core/services/messenger.service';
 import { PurchaseServices } from 'src/app/core/services/purchase.service';
+import { StripeServices } from 'src/app/core/services/stripe.service';
 import { LocalStorageConfig } from 'src/app/library/clientconfig/localstorageconfig';
 import { InformationManualBankingModel } from 'src/app/models/models/infomation-banking';
 import { PurchaseOrder } from 'src/app/models/models/purchase';
@@ -21,6 +22,7 @@ export class CheckoutComponent implements OnInit {
     private readonly purchaseServices: PurchaseServices,
     private readonly cartServices: CartServices,
     private readonly messengerServices: MessengerServices,
+    private readonly stripeServices : StripeServices,
   ) { }
   purchaseCode: string = '';
   infomationBanking: InformationManualBankingModel;
@@ -72,20 +74,22 @@ export class CheckoutComponent implements OnInit {
       contentTranferBanking: this.purchaseCode,
       totalPrice: this.totalValue,
       discountAmount: 0,
-      purcharseCode: this.purchaseCode,
+      purcharseCode: null,
       listPurchaseCourseDetails: dataDetailsOfCourseDetail,
       infoBanking: this.infomationBanking
     };
 
-    this.purchaseServices.createRequestPurchase(dataInsert).subscribe((res) => {
-      if (res.retCode === 0 && res.systemMessage === '') {
-        this.cartServices.removeAllDataOfCart();
-        this.messengerServices.confirmCreateOrder('Đơn hàng đang trong quá trình thanh toán, nếu thành công sẽ thông báo đến bạn!');
-        this.routers.navigate(['/']);
-      } else {
-        this.messengerServices.errorWithIssue();
-      }
-    });
+    // this.purchaseServices.createRequestPurchase(dataInsert).subscribe((res) => {
+    //   if (res.retCode === 0 && res.systemMessage === '') {
+    //     this.cartServices.removeAllDataOfCart();
+    //     this.messengerServices.confirmCreateOrder('Đơn hàng đang trong quá trình thanh toán, nếu thành công sẽ thông báo đến bạn!');
+    //     this.routers.navigate(['/']);
+    //   } else {
+    //     this.messengerServices.errorWithIssue();
+    //   }
+    // });
+
+    this.stripeServices.goToCheckOutForStripe(dataInsert);
 
 
   }

@@ -257,7 +257,7 @@
                         <div class="col-lg-4 col-md-6" *ngFor="let item of courseContentCourse?.listCourseRate">
                             <div class="single-courses-box">
                                 <div class="courses-image">
-                                    <a routerLink="/chi-tiet-khoa-hoc/{{item.id}}" class="d-block image">
+                                    <a routerLink="/detail-courses/{{item.id}}" class="d-block image">
                                         <img src="{{item?.pictureUrl}}" style="width: 100%;" alt="image" />
                                     </a>
                                     <a routerLink="/" class="fav"><i class="flaticon-heart"></i></a>
@@ -269,7 +269,7 @@
                                         <span>Alex Morgan</span>
                                     </div>
                                     <h3>
-                                        <a routerLink="/chi-tiet-khoa-hoc">{{item?.title}}</a>
+                                        <a routerLink="/detail-courses">{{item?.title}}</a>
                                     </h3>
                                     <ul class="courses-box-footer d-flex justify-content-between align-items-center">
                                         <li><i class="flaticon-agenda"></i> {{item?.totalChapter}} Chương</li>
@@ -353,7 +353,7 @@
 
                     <div class="btn-box">
                         <a [hidden]="courseContentCourse?.isPurchase" href="javascript:void(0);" class="default-btn" (click)="addCourseToCart()"><i class="flaticon-shopping-cart"></i>Thêm giỏ hàng<span></span></a>
-                        <a [hidden]="!courseContentCourse?.isPurchase" routerLink="/chi-tiet-noi-dung-khoa-hoc/{{courseContentCourse?.id}}" class="default-btn"><i class="flaticon-shopping-cart"></i>Truy cập khoá học<span></span></a>
+                        <a [hidden]="!courseContentCourse?.isPurchase" routerLink="/detail-content-course/{{courseContentCourse?.id}}" class="default-btn"><i class="flaticon-shopping-cart"></i>Truy cập khoá học<span></span></a>
                     </div>
 
                     <div class="courses-share">

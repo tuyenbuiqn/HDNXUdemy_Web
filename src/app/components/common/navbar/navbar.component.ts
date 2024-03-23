@@ -74,11 +74,11 @@ export class NavbarComponent implements OnInit {
     }
 
     goToViewDetailCourseOfCategory(id: number) {
-        this.router.navigate([`/khoa-hoc/${id}`]);
+        this.router.navigate([`/courses/${id}`]);
     }
 
     goToNotification() {
-        this.router.navigate(['/thong-bao'])
+        this.router.navigate(['/notification'])
     }
 
     getInformationOfUser() {
@@ -87,7 +87,7 @@ export class NavbarComponent implements OnInit {
 
     logoutAccount(){
         this.authenticationServices.logoutWithAccount();
-        this.router.navigate([`/dang-nhap`]);
+        this.router.navigate([`/login`]);
     }
 
 }

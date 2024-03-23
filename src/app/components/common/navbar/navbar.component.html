@@ -26,29 +26,29 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/san-pham" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Cửa hàng</a>
+                        <a routerLink="/products" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Cửa hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/tai-tai-lieu" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Kho tài liệu</a>
+                        <a routerLink="/download-document" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Kho tài liệu</a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/tin-tuc" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tin tức</a>
+                        <a routerLink="/news" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tin tức</a>
                     </li>
                     <li class="nav-item">
                         <a routerLink="/about" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Về chúng tôi</a>
                     </li>
                     <li class="nav-item border-animation" style="margin-left: 20px; margin-right: 20px;">
-                        <a routerLink="/dao-tao-online" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Học cùng giảng viên</a>
+                        <a routerLink="/training-online" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Học cùng giảng viên</a>
                     </li>
                     <div class="others-option d-flex align-items-center">
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a routerLink="/gio-hang"><i class="flaticon-shopping-cart"></i><span>{{count}}</span></a>
+                                <a routerLink="/cart"><i class="flaticon-shopping-cart"></i><span>{{count}}</span></a>
                             </div>
                         </div>
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a routerLink="/thong-bao"><i class="bx bx-bell"></i><span>{{count}}</span></a>
+                                <a routerLink="/notification"><i class="bx bx-bell"></i><span>{{count}}</span></a>
                             </div>
                         </div>
                         <ul class="navbar-nav" *ngIf="isMemberAccount">
@@ -62,18 +62,18 @@
                                 </div>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a routerLink="/thong-tin-tai-khoan" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Thông tin cá nhân</a>
+                                        <a routerLink="/my-information" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Thông tin cá nhân</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a routerLink="/khoa-hoc-yeu-thich" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Danh sách yêu thích</a>
+                                        <a routerLink="/bookmark-course" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Danh sách yêu thích</a>
                                     </li>
                                     <li class="nav-item e">
-                                        <a routerLink="/khoa-hoc-hoc-vien" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Danh sách khoá học</a>
+                                        <a routerLink="/my-course" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Danh sách khoá học</a>
                                     </li>
                                     <div class="border-profile"></div>
 
                                     <li class="nav-item">
-                                        <a routerLink="/tro-thanh-giang-vien" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Trở thành giảng viên</a>
+                                        <a routerLink="/become-teacher" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Trở thành giảng viên</a>
                                     </li>
                                     <div class="border-profile"></div>
 
@@ -87,7 +87,7 @@
                 </ul>
                 <ul class="navbar-nav for-responsive">
                     <li class="nav-item">
-                        <a routerLink="/dao-tao-online" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Training online</a>
+                        <a routerLink="/training-online" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Training online</a>
                     </li>
                     <li class="nav-item">
                         <a href="javascript:void(0)" class="nav-link">Khoá học <i class="bx bx-chevron-down"></i></a>
@@ -104,10 +104,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/tai-tai-lieu" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Download tài liệu</a>
+                        <a routerLink="/download-document" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Download tài liệu</a>
                     </li>
                     <li class="nav-item">
-                        <a routerLink="/tin-tuc" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tin tức</a>
+                        <a routerLink="/news" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tin tức</a>
                     </li>
                     <li class="nav-item">
                         <a routerLink="/about" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Về chúng tôi</a>
