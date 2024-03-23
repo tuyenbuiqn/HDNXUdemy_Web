@@ -2,10 +2,10 @@
     <div class="container">
         <div class="page-title-content">
             <ul>
-                <li><a routerLink="/">Trang chủ</a></li>
-                <li>Giỏ hàng</li>
+                <li><a routerLink="/">Home</a></li>
+                <li>Cart</li>
             </ul>
-            <h2>Giỏ hàng</h2>
+            <h2>Cart</h2>
         </div>
     </div>
     <div class="shape9"><img src="assets/img/shape8.svg" alt="image" /></div>
@@ -14,7 +14,7 @@
 <div class="header-cart-payment" *ngIf="!isMemberAccount">
     <div class="user-actions">
         <i class="bx bx-log-in"></i>
-        <span>Bạn chưa đăng nhập? <a routerLink="/login">Click để đăng nhập</a> <a routerLink="/register">/ đăng ký đê tiếp tục</a></span>
+        <span>Are you a member? <a routerLink="/login">Click for login</a> <a routerLink="/register">/ Register for continues</a></span>
     </div>
 </div>
 <div class="container pt-5 pb-5">
@@ -25,8 +25,8 @@
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Khoá học</th>
-                        <th scope="col">Giá tiền</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Amount</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,18 +67,18 @@
     </div>
     <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">
         <div class="cart-totals">
-            <h3>Tổng đơn hàng</h3>
+            <h3>Infomation Of Order</h3>
             <ul>
-                <li>Tổng đơn hàng <span>{{totalValue | currency: 'VND':'symbol':'1.0-0'}}</span></li>
-                <li>Giảm giá <span></span></li>
-                <li>Tổng cộng <span>{{totalValue | currency: 'VND':'symbol':'1.0-0'}}</span></li>
+                <li>Total bill Order <span>{{totalValue | currency: 'VND':'symbol':'1.0-0'}}</span></li>
+                <li>Discount <span></span></li>
+                <li>Total Amount <span>{{totalValue | currency: 'VND':'symbol':'1.0-0'}}</span></li>
             </ul>
 
             <div class="shopping-coupon-code">
-                <input type="text" class="form-control" placeholder="Nhập giảm giá" name="coupon-code" id="coupon-code" />
-                <button type="submit">Nhập giảm giá</button>
+                <input type="text" class="form-control" placeholder="Promotion Code" name="coupon-code" id="coupon-code" />
+                <button type="submit">Promotion code</button>
             </div>
-            <a href="javascript:void(0)" class="default-btn with-btn-login" (click)="goToPaymentForCourse()"><i class="flaticon-shopping-cart"></i>Tiếp tục thanh toán<span></span></a>
+            <a href="javascript:void(0)" class="default-btn with-btn-login" (click)="goToPaymentForCourse()"><i class="flaticon-shopping-cart"></i>Continues to payment<span></span></a>
         </div>
     </div>
 </div>

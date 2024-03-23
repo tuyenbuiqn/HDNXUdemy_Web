@@ -2,10 +2,10 @@
     <div class="container">
         <div class="page-title-content">
             <ul>
-                <li><a routerLink="/">Trang chủ</a></li>
-                <li>Tài liệu</li>
+                <li><a routerLink="/">Home</a></li>
+                <li>Document</li>
             </ul>
-            <h2>Kho tài liệu</h2>
+            <h2>Documents</h2>
         </div>
     </div>
     <div class="shape9"><img src="assets/img/shape8.svg" alt="image"></div>
@@ -17,7 +17,7 @@
             <ul class="nav-tabset">
                 <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab1'}">
                     <span (click)="switchTab($event, 'tab1')">
-                        Tất cả
+                        All
                     </span>
                 </li>
                 <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab2'}">

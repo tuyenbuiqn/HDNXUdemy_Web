@@ -1,7 +1,7 @@
 <div class="container" [hidden]="!listCourse.listDataOfContent.length">
     <div class="title-of-course">
         <h4 class="sub-title "><i class='flaticon-shopping-cart'></i> {{listCourse.nameContent}}</h4>
-        <a class="sub-title" href="http://" target="_blank" rel="noopener noreferrer">Xem thêm</a>
+        <a class="sub-title" href="http://" target="_blank" rel="noopener noreferrer">View more</a>
     </div>
     <div class="courses-slides-two">
         <owl-carousel-o [options]="coursesSlides">
@@ -13,7 +13,7 @@
                                 <img src="{{item.pictureUrl}}" alt="image">
                             </a>
 
-                            <div [hidden]="!item.isDiscount" class="price shadow">Khuyến mãi</div>
+                            <div [hidden]="!item.isDiscount" class="price shadow">{{item.isDiscount == true ? (item.priceOfDiscount| currency ) : (item.priceOfCourse | currency )}}</div>
                         </div>
                         <div class="courses-content">
                             <div class="course-author d-flex align-items-center justify-content-between">
@@ -33,8 +33,8 @@
                                 </li>
                             </ul>
                             <ul class=" courses-box-footer botton-course d-flex justify-content-between align-items-center">
-                                <li><i class='flaticon-agenda'></i> {{item.totalChapter}} Chương</li>
-                                <li><i class='flaticon-people'></i> {{item.totalStudentRegister}} Học viên</li>
+                                <li><i class='flaticon-agenda'></i> {{item.totalChapter}} Lessons</li>
+                                <li><i class='flaticon-people'></i> {{item.totalStudentRegister}} Students</li>
                             </ul>
                         </div>
                     </div>

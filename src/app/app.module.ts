@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountUpModule } from 'ngx-countup';
@@ -177,7 +177,7 @@ import { MentionModule } from 'angular-mentions';
         console.log(error);
       }
     } as SocialAuthServiceConfig
-  }],
+  }, {provide: DEFAULT_CURRENCY_CODE, useValue: 'USD'},],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

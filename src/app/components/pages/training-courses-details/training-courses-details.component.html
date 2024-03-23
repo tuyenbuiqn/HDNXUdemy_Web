@@ -2,7 +2,7 @@
     <div class="container">
         <div class="page-title-content">
             <ul>
-                <li><a routerLink="/">Trang chủ</a></li>
+                <li><a routerLink="/">Home</a></li>
                 <li><a routerLink="/">Development</a></li>
                 <li>Python for Finance: Investment Fundamentals & Data Analytics</li>
             </ul>
@@ -29,16 +29,16 @@
                 <div class="courses-details-desc pb-5">
                     <ul class="nav-tabset">
                         <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab1' }">
-                            <span (click)="switchTab($event, 'tab1')"> Thông tin khoá học </span>
+                            <span (click)="switchTab($event, 'tab1')"> Infomation Of Course </span>
                         </li>
                         <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab2' }">
-                            <span (click)="switchTab($event, 'tab2')"> Nội dung khoá học </span>
+                            <span (click)="switchTab($event, 'tab2')"> Content Of Course </span>
                         </li>
                         <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab3' }">
-                            <span (click)="switchTab($event, 'tab3')"> Tác giả </span>
+                            <span (click)="switchTab($event, 'tab3')"> Author </span>
                         </li>
                         <li class="nav-tab" [ngClass]="{ active: currentTab === 'tab4' }">
-                            <span (click)="switchTab($event, 'tab4')"> Đánh giá khoá học </span>
+                            <span (click)="switchTab($event, 'tab4')">Reviews</span>
                         </li>
                     </ul>
                     <div class="tabs-container">

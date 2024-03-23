@@ -2,15 +2,15 @@
 <div class="inner-banner inner-bg2">
     <div class="container">
         <div class="inner-title text-center">
-            <h1>Cập nhật thông tin</h1>
+            <h1>Update Infomation</h1>
             <ul>
                 <li>
                     <a routerLink="/">
-                        Trang chủ
+                        Home
                     </a>
                 </li>
                 <li>
-                    Cập nhật tài khoản
+                    Update infomation for account
                 </li>
             </ul>
             <div class="inner-shape">
@@ -66,23 +66,23 @@
                 <div class="col-xl-9 col-lg-8 col-md-12">
                     <div class="create-form">
                         <div class="section-title">
-                            <h2>Cập nhật thông tin</h2>
+                            <h2>Update Infomation</h2>
                         </div>
                         <form [formGroup]="informationOfUser">
                             <div class="row">
                                 <div class="col-lg-12 col-md-6">
                                     <div class="form-group">
-                                        <label>Tải hình ảnh avatar</label>
+                                        <label>Update avatar</label>
                                         <div class="profileButton">
                                             <input class="profileButton-input" type="file" name="attachments[]" accept="image/*, application/pdf" id="upload" multiple />
-                                            <label class="profileButton-button ripple-effect" for="upload">e. g. Hình ảnh (định dạng JPG, PNG)</label>
+                                            <label class="profileButton-button ripple-effect" for="upload">e. g. Picture (format JPG, PNG)</label>
                                             <span class="profileButton-file-name"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-6">
                                     <div class="form-group">
-                                        <label>Họ và Tên</label>
+                                        <label>Full name</label>
                                         <input type="text" name="name" id="name" class="form-control" formControlName="name" placeholder="Nhập thông tin tên">
                                     </div>
                                 </div>
@@ -94,26 +94,26 @@
                                 </div>
                                 <div class="col-lg-12 col-md-6">
                                     <div class="form-group">
-                                        <label>Mật khẩu</label>
+                                        <label>Password</label>
                                         <input type="text" name="name" id="name" class="form-control" formControlName="password" placeholder="Thông tin mật khẩu">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <label>Số điện thoại</label>
+                                        <label>Phone</label>
                                         <input type="text" class="form-control" formControlName="phone" placeholder="Thông tin số điện thoại">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
-                                        <label>Giới tính</label>
+                                        <label>General</label>
                                         <select class="form-select" id="product-general-input" formControlName="general">
                                             <option *ngFor="let item of generals" [value]="item.id">{{item.name}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <button type="button" (click)="updateStudent()" class="default-btn border-radius-5 with-btn-login">Cập nhật thông tin</button>
+                                    <button type="button" (click)="updateStudent()" class="default-btn border-radius-5 with-btn-login">Update</button>
                                 </div>
                             </div>
                         </form>
